@@ -8,9 +8,6 @@ function App() {
       <Router>
       <div className="container">
       <Switch>
-          <Route exact path="/">
-            <Inicio />
-          </Route>
           <Route path="/registro">
             <Registro/>
           </Route>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, Form } from "react";
 
 const Registro = () => {
     const [nombre, setNombre] = useState(""); //iniciada en vacio ("")
@@ -8,18 +8,38 @@ const Registro = () => {
     const [celular, setCelular] = useState("");
     const [ingeniero, setIngeniero] = useState("");
     const [empleador, setEmpleador] = useState("");
+    const [habilidades, setHabilidades] = useState("");
+    const [empresa, setEmpresa] = useState("");
+    const [cargo, setCargo] = useState("");
+    const [oferta, setOferta] = useState("");
 
     const mostrarIngeniero = () => {
         setEmpleador("");
         setIngeniero(
-            <div class="mb-3">
-            <label for="disabledSelect" class="form-label">Seleccione profesión</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Ingenieria</option>
-                <option value="1">Ingenieria Industrial</option>
-                <option value="2">Ingenieria de Sitemas</option>
-                <option value="3">Ingenieria Catastral y Geodesia</option>
-            </select>
+            <div>
+                <div class="mb-3">
+                    <label for="disabledSelect" class="form-label">Seleccione profesión</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Ingenieria</option>
+                        <option value="1">Ingenieria Industrial</option>
+                        <option value="2">Ingenieria de Sitemas</option>
+                        <option value="3">Ingenieria Catastral y Geodesia</option>
+                    </select>
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="text-left">Habilidades</label>
+                    <input type="email"
+                        className="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        //Para guardar la información digitada por el usuario
+                        value={habilidades}
+                        onChange={(e) => {
+                            setHabilidades(e.target.value);
+                        }}
+                    />
+                </div>
             </div>
         )
     }
@@ -27,6 +47,7 @@ const Registro = () => {
     const mostrarEmpleador = () => {
         setIngeniero("");
         setEmpleador(
+            <div>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="text-left">Empresa</label>
                 <input type="email"
@@ -34,11 +55,41 @@ const Registro = () => {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     //Para guardar la información digitada por el usuario
-                    value={nombre}
+                    value={empresa}
                     onChange={(e) => {
-                        setNombre(e.target.value);
+                        setEmpresa(e.target.value);
                     }}
                 />
+            </div>
+            
+            <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="text-left">Cargo</label>
+                <input type="email"
+                    className="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    //Para guardar la información digitada por el usuario
+                    value={cargo}
+                    onChange={(e) => {
+                        setCargo(e.target.value);
+                    }}
+                />
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="text-left">Oferta Laboral</label>
+                <input type="email"
+                    className="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    //Para guardar la información digitada por el usuario
+                    value={oferta}
+                    onChange={(e) => {
+                        setOferta(e.target.value);
+                    }}
+                />
+            </div>
+
             </div>
         )
     }
