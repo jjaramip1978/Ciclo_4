@@ -13,8 +13,12 @@ function Item(props){
                
                
 							  <div className="actions">
-                    <button>Eliminar</button>
-										<button>Editar</button>
+                    <button type="button" className="btn btn-danger btn-sm">
+										<i className="bi bi-trash-fill"></i>
+										</button>
+										<button type="button" className="btn btn-success btn-sm">
+										<i className="bi bi-pencil-fill"></i>
+										</button>
                 </div>
      </div>
       

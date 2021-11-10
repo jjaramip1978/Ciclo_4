@@ -86,7 +86,7 @@ onSearch = (query) => {
 
       <Menu title="Buscador de Servicios Registrados" onsearch={this.onSearch}/>
       <List items={this.state.copyserviciosRegistrados}/>
-
+  
     </div>
   );
  }

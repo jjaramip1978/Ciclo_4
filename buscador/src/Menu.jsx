@@ -7,7 +7,7 @@ function Menu(props){
 		<div ClassName="container">
 			<div className="subcontainer">
 
-				<div className="logo">
+				<div className="d-flex justify-content-center my-3">
 					{props.title}
 				</div>
 
@@ -15,8 +15,10 @@ function Menu(props){
 					<Search onsearch={props.onsearch}/>
 				</div>
 
-				<div ClassName="actions">
-					<button className="button btn-blue">+ Añadir nuevo registro de servicio</button>
+				<div className="actions">
+					<button type="button" className="btn btn-info">
+					<i className="bi bi-person-plus-fill btn-lg"></i>
+					</button>
 				</div>
 
 			</div>
