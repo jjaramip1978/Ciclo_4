@@ -1,6 +1,8 @@
 You can run this project with the following command sequence:
 
 ### `npm install react-scripts`
+### `npm install react-router-dom`
+### `npm install react-helmet`
 ### `npm start`
 
 Runs the app in the development mode.\
