@@ -4,7 +4,7 @@ import './Menu.css';
 
 function Menu(props){
 	return(
-		<div ClassName="container">
+		<div ClassName="container-fluid">
 			<div className="subcontainer">
 
 				<div className="d-flex justify-content-center my-3">

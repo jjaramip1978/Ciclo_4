@@ -10,9 +10,12 @@ function List(props){
 						key={item.id}
 					  Id={item.id} 
        		  Codigo={item.Codigo} 
+						Nombre={item.Nombre}
        			Correo={item.Correo} 
+						Profesion={item.Profesion}
        			Habilidad={item.Habilidad}
-       			Descripcion={item.Descripcion} 
+       			Descripcion={item.Descripcion}
+						Ciudad={item.Ciudad}
        			Valor={item.Valor} />
 				)
 			}
