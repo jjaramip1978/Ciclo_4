@@ -6,9 +6,12 @@ function Item(props){
 		<div className="item">
                 <div className="Id">{props.Id}</div>
                 <div className="Codigo">{props.Codigo}</div>
+								<div className="Nombre">{props.Nombre}</div>
                 <div className="Correo">{props.Correo}</div>
+								<div className="Profesion">{props.Profesion}</div>
 								<div className="Habilidad">{props.Habilidad}</div>
 								<div className="Descripcion">{props.Descripcion}</div>
+								<div className="Ciudad">{props.Ciudad}</div>
                 <div className="Valor">{props.Valor}</div>
                
                
