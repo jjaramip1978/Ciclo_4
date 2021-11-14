@@ -1,4 +1,6 @@
-import React, { useState, Form } from "react";
+import React, { useState} from "react";
+import "../../index.css"
+import {Helmet} from 'react-helmet';
 
 const Registro = () => {
     const [nombre, setNombre] = useState(""); //iniciada en vacio ("")
@@ -18,7 +20,7 @@ const Registro = () => {
         setIngeniero(
             <div>
                 <div class="mb-3">
-                    <label for="disabledSelect" class="form-label">Seleccione profesión</label>
+                    <label for="disabledSelect" className="form-label">Seleccione profesión</label>
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Ingenieria</option>
                         <option value="1">Ingenieria Industrial</option>
@@ -109,13 +111,17 @@ const Registro = () => {
             setNombre("Lucario");
         },[ingeniero]) */
 
-    return (<div>
+    return (
+    <div class="form-container">
+        <Helmet>
+        <style>{'body { background-color: lightblue; }'}</style>
+        </Helmet>
         <h1>Registrate</h1>
         <br></br>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className= "register-form">
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="text-left">Nombre Completo</label>
-                <input type="email"
+                <input 
                     className="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
