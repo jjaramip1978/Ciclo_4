@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import AppRegistro from './AppRegistro';
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppRegistro />
   </React.StrictMode>,
   document.getElementById('root')
 );

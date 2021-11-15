@@ -1,6 +1,6 @@
-import './App.css';
+import './AppRegistro.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Registro from "./pages/Registro/Registro";
+import Registro from "./pages/Registro";
 
 function App() {
   return (
