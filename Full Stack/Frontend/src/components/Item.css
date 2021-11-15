@@ -1,0 +1,21 @@
+.item{
+    
+    display: inline-block;
+    padding: 10px;
+    margin: 15px;
+    width: 200px;
+    vertical-align: top;
+}
+
+.item .title{
+    font-weight: bold;
+    font-size: 18px;
+    height: 60px;
+}
+
+.item .actions{
+    width: 100%;
+    border-top: solid 1px #bbb;
+    padding: 5px 0;
+    margin-top: 10px;
+}

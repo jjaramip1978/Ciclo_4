@@ -1,37 +1,27 @@
-import { useState, useEffect } from "react";
-import { Navigation } from "./components/navigation";
-import { Header } from "./components/header";
-import { Features } from "./components/features";
-import { Services } from "./components/services";
-import { Testimonials } from "./components/testimonials";
-import { Team } from "./components/team";
-import { Contact } from "./components/contact";
-import JsonData from "./data/data.json";
-import SmoothScroll from "smooth-scroll";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Registro from "./pages/Registro";
+import Buscador from "./pages/Buscador";
 
-export const scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 1000,
-  speedAsDuration: true,
-});
-
-const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-  useEffect(() => {
-    setLandingPageData(JsonData);
-  }, []); 
-
+function App() {
   return (
-    <div>
-      <Navigation />
-      <Header data={landingPageData.Header} />
-      <Features data={landingPageData.Features} />
-      <Services data={landingPageData.Services} />
-      <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
-      <Contact data={landingPageData.Contact} />
+    <div className="app">
+      <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/registro">
+              <Registro />
+            </Route>
+            <Route path="/buscador">
+              <Buscador />
+            </Route>
+          </Switch>
+      </Router>
     </div>
   );
-};
+}
 
 export default App;

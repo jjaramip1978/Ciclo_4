@@ -1,3 +1,5 @@
+import {Link, NavLink} from 'react-router-dom';
+
 export const Navigation = (props) => {
   return (
     <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
@@ -17,9 +19,9 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
           </button>
           <div className='navbar-logo'>
-            <a className='navbar-brand page-scroll' href='#page-top'>
+            <Link className='navbar-brand page-scroll' to='/'>
               INGENIO
-            </a>{' '}
+            </Link>{' '}
           </div>
         </div>
 
@@ -29,24 +31,19 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li>
-              <a href='#features' className='page-scroll'>
-                Características
-              </a>
+              <NavLink to='/registro' className='page-scroll'>
+                Sing up
+              </NavLink>
             </li>
             <li>
-              <a href='#services' className='page-scroll'>
-                Servicios
-              </a>
+              <NavLink to='/' className='page-scroll'>
+                Sing in
+              </NavLink>
             </li>
             <li>
-              <a href='#testimonials' className='page-scroll'>
-                Testimonios
-              </a>
-            </li>
-            <li>
-              <a href='#team' className='page-scroll'>
-                Team
-              </a>
+              <NavLink to='/buscador' className='page-scroll'>
+                Buscador
+              </NavLink>
             </li>
           </ul>
         </div>
