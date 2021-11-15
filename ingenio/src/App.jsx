@@ -1,6 +1,7 @@
 import './App.css';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Registro from "./pages/Registro/Registro";
+import Form from "./pages/Registro/form";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <div className="container">
       <Switch>
           <Route path="/registro">
-            <Registro/>
+            <Form/>
           </Route>
       </Switch>
         </div>
