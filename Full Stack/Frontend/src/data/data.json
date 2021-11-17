@@ -1,0 +1,89 @@
+{
+  "Header": {
+    "title": "INGENIO",
+    "paragraph": "Ingenio es una plataforma que te ayudara a conseguir los mejores servicios de ingeniería. De los ingenieros profesionales mejor formados y en todas las áreas que necesitas."
+  },
+  "Features": [
+    {
+      "icon": "fa fa-users",
+      "title": "Una comunidad de ingenieros",
+      "text": "Sé parte de esta grandiosa comunidad de ingenieros profesionales dispuestos a ofrecer sus servicios, demostrar sus habilidades y conseguir ese trabajo ideal ."
+    },
+    {
+      "icon": "fa fa-thumbs-up",
+      "title": "Clientes satisfechos",
+      "text": "Únete y sé parte de nuestros clientes que estan satisfechos con los servicios adquiridos dentro de Ingenio, encuentra los servicios con los mejores precios."
+    },
+    {
+      "icon": "fa fa-lightbulb-o",
+      "title": "Mejores candidatos",
+      "text": "No pierdas más tu tiempo, busca a los ingenieros conociendo previamente sus habilidades. Encuentra al mejor ingeniero para los requerimientos de tu compañía."
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-id-card-o",
+      "title": "Ofrece tus servicios",
+      "text": "En Ingenio podras ofrecer tus servicios en Ingenieria, ampliando tu red de clientes y adquiriendo nueva experiencia profesional."
+    },
+    {
+      "icon": "fa fa-shopping-bag",
+      "title": "Contratar Servicio",
+      "text": "En Ingenio podras adquirir los mejores servicios en Ingenieria, encontrando la respuesta adecuada a tus necesidades a un solo click."
+    },
+    {
+      "icon": "fa fa-handshake-o",
+      "title": "Contrata Profesionales",
+      "text": "En Ingenio podras contratar a los mejores profesionales conociendo previamente sus habilidades y conocimientos en el sector que necesitas."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/ingeniero.jpg",
+      "text": "\"Ingenio me dio la oportunidad de demostrar mis habilidades, concrete algunos proyectos recibiendo una gran retroalimentación y en poco tiempo encontré una oferta de trabajo que se adaptaba a mi perfil profesional y rápidamente fui contratado.\"",
+      "name": "John Doe - Frontend React Developer"
+    },
+    {
+      "img": "img/testimonials/cliente.jpg",
+      "text": "\"Como cliente quedé totalmente satisfecha con el servicio que recibí sobre el avalúo de mi terreno. La ingeniera Catastral que lo ofreció, tiene los conocimientos y aptitudes necesarios para realizar esta labor, recomiendo Ingenio.\"",
+      "name": "Lorem Doe"
+    },
+    {
+      "img": "img/testimonials/rappi.jpg",
+      "text": "\"En cuestión de pocas horas encontramos al desarrollador Frontend que buscábamos, su historial de servicios prestados en la plataforma de Ingenio nos demostró que era la persona adecuada para nuestro proyecto.\"",
+      "name": "Johanna Joe - Recruiter Rappi"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/scrum_master.jpg",
+      "name": "José Pinto",
+      "job": "Scrum Master"
+    },
+    {
+      "img": "img/team/John_Mack.jpg",
+      "name": "John Mack",
+      "job": "Frontend Developer"
+    },
+    {
+      "img": "img/team/José_Jaramillo.jpg",
+      "name": "José Jaramillo",
+      "job": "Backend Developer"
+    },
+    {
+      "img": "img/team/Laura_Pachon.jpg",
+      "name": "Laura Pachon",
+      "job": "Frontend Developer"
+    },
+    {
+      "img": "img/team/Melisa_Coral.jpg",
+      "name": "Melisa Coral",
+      "job": "Product Owner"
+    },
+    {
+      "img": "img/team/Wilson_Jurado.jpg",
+      "name": "Wilson Jurado",
+      "job": "Frontend Developer" 
+    }
+  ]
+}
