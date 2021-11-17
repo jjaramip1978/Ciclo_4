@@ -15,8 +15,9 @@ function List(props){
 						Profesion={item.Profesion}
        			Habilidad={item.Habilidad}
        			Descripcion={item.Descripcion}
+						Pais={item.Pais}
 						Ciudad={item.Ciudad}
-       			Valor={item.Valor} />
+       			Valor={item.Valor} />  
 				)
 			}
 
