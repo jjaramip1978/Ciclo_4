@@ -20,12 +20,12 @@ const Item = (props) => {
 						<h7 className="card-title pricing-card-title">
 							{props.Profesion}
 							<small className="h6 test-muted fw-light d-block">
-								{props.Ciudad}, {props.Pais}
+								{props.Ciudad} {props.Pais}
 							</small>
 						</h7>
 						<h7 className="card-title pricing-card-title">
 							{props.Descripcion}
-							<small className="h6 text-muted fw-light d-block">Experiencia</small>
+							<small className="h6 text-muted fw-light d-block">Experiencia: {props.Experiencia}</small>
 						</h7>
 						<h7 className="card.title pricing-card-title">
 							{props.Correo}
@@ -33,7 +33,7 @@ const Item = (props) => {
 						</h7>
 
 						<ul className="list-unstyled mt-3 mb-4">
-							<li>{props.Valor}</li>
+							<li>Costo:${props.Rango}</li>
 						</ul>
 
 		 				<div className="actions">
