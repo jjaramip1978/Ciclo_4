@@ -14,10 +14,12 @@ function List(props){
        			Correo={item.Correo} 
 						Profesion={item.Profesion}
        			Habilidad={item.Habilidad}
+						Departamneto={item.Departamento}
        			Descripcion={item.Descripcion}
+						Experiencia={item.Experiencia}
 						Pais={item.Pais}
 						Ciudad={item.Ciudad}
-       			Valor={item.Valor} />  
+       			Rango={item.Rango} />  
 				)
 			}
 
