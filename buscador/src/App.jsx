@@ -15,9 +15,10 @@ class App extends React.Component {
        Codigo: 'MO5001',
        Nombre: 'Lorena Vasquez',
        Correo: 'lorena_vasquez@gmail.com', 
-       Profesion: 'Administracion de empresas',
+       Profesion: 'Administrador de empresas',
        Habilidad: 'Desarrollador Web Senior', 
        Descripcion: 'Creacion e implementacion de planes de diseño para las páginas web', 
+       Pais: 'Colombia',
        Ciudad: 'Pasto',
        Valor: 5000000},
 
@@ -25,9 +26,10 @@ class App extends React.Component {
        Codigo: 'MO5001', 
        Nombre: 'Carlos Marquez',
        Correo: 'carlos_marquez@gmail.com', 
-       Profesion: 'Ingenieria hidraulica',
+       Profesion: 'Ingeniero hidraulico',
        Habilidad: 'Gerencia administracion de proyectos', 
        Descripcion: 'Diseño y desarrollo de obras hidraulicas viales', 
+       Pais: 'Colombia',
        Ciudad: 'Bogota',
        Valor: 5000000},
         
@@ -38,6 +40,7 @@ class App extends React.Component {
        Profesion: 'Tecnico en gesiton administrativa',
        Habilidad: 'Desarrollador web junior', 
        Descripcion: 'Manejo JAVA C#, PHYTON y SQL', 
+       Pais: 'Colombia',
        Ciudad: 'Bolivar',
        Valor: 3000000},
 
@@ -45,9 +48,10 @@ class App extends React.Component {
        Codigo: 'MO5001', 
        Nombre: 'Robinson Merchancano',
        Correo: 'Robinson_HB@hotmail.com', 
-       Profesion: 'Diseño web',
+       Profesion: 'Diseñador web',
        Habilidad: 'Desarrollador web junior', 
        Descripcion: 'Manejo JAVA C#, PHYTON, SQL y NoSQL', 
+       Pais: 'Colombia',
        Ciudad: 'Montería',
        Valor: 3000000},
 
@@ -55,14 +59,28 @@ class App extends React.Component {
        Codigo: 'MO5001', 
        Nombre: 'Mauricio Cota',
        Correo: 'Mauricio_123@gmail.com', 
-       Profesion: 'Ingenieria de Sistemas',
+       Profesion: 'Ingeniero de Sistemas',
        Habilidad: 'Desarrollador full stack', 
        Descripcion: 'Herramientas de Desarrollo de Software, lenguajes de programación back-end (PHP, Python, Bash, otros) y front-end (Angular, JavaScript, JQuery, React), Desarrollo bases de datos (MySql, SQL, PL SQL, otros), Conocimientos de Unix-Linux', 
+        Pais: 'Colombia',
        Ciudad: 'Villavicencio',
        Valor: 5000000},
 
+      {Id:5, 
+       Codigo: 'MO5001', 
+       Nombre: 'Yenny Valencia',
+       Correo: 'Yenny@gmail.com', 
+       Profesion: 'Ingeniero de Sistemas',
+       Habilidad: 'Desarrollador full stack', 
+       Descripcion: 'Herramientas de Desarrollo de Software, lenguajes de programación back-end (PHP, Python, Bash, otros) y front-end (Angular, JavaScript, JQuery, React), Desarrollo bases de datos (MySql, SQL, PL SQL, otros), Conocimientos de Unix-Linux', 
+       Ciudad: 'Cucuta',
+       Pais: 'Colombia',
+       Valor: 5000000},
+
       ],
+      
       copyserviciosRegistrados: []
+
   };
 }
 
@@ -85,7 +103,7 @@ onSearch = (query) => {
     const temp = [...this.state.serviciosRegistrados];
     let res = [];
 
-  temp.forEach(item =>{
+  temp.forEach(item =>{ 
     if(item.Habilidad.toLowerCase().indexOf(query) > -1){
       res.push(item);
     }if (item.Ciudad.toLowerCase().indexOf(query) > -1) {
@@ -100,18 +118,21 @@ onSearch = (query) => {
   this.setState({copyserviciosRegistrados: [ ...res]});
   }
 }
-
   render(){  
     return (
     <div className="app">
-        <div className="container-lg bg-primary">
-          <div className="p-3 pb-md-4 mx-auto text-center">
-            <h2>
-            <Menu title="Buscador de Servicios Registrados" onsearch={this.onSearch}/>
-             </h2>
-          </div>
-        </div>
-        <div>
+      <div className="container-lg bg-light">
+             <div className="p-3 pb-md-4 mx-auto text-center">
+               <h3>
+              <Menu title="Buscador de Servicios Registrados" 
+              onsearch={this.onSearch}
+              
+              />
+            
+               </h3>
+            </div>
+      </div>
+    <div>
             <List items={this.state.copyserviciosRegistrados}/>
         </div>
     </div>
