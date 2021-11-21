@@ -1,15 +1,17 @@
 import React from 'react';
-import './App.css';
 import Menu from './Menu';
 import List from './List';
 
 
-class App extends React.Component {
+class App extends React.Component {     /* Se determina componente como clase para poder modificar el estado
+                                          de la aplicacón y así modificar la información grafica de esta por medio 
+                                          un construcor y su variable state o estado*/
 
   constructor(props){
     super(props);
 
-    this.state = {
+    this.state = {                        /* estado o state crea un arrego de objetos llamado serviciosRegistrados 
+                                            con las propiedades de cada servicio registrado*/
       serviciosRegistrados:[
       {Id:0, 
        Codigo: 'MO5001',
@@ -86,38 +88,66 @@ class App extends React.Component {
        Ciudad: 'Cucuta',
        Experiencia: '5 años',
        Pais: 'Colombia',
-       Rango: '1000000-5000000',
+       Rango: '1000000-5000000',  
       },
 
-      ],
+      ],                              /* Ahora necesitamos pasar esta información al componente List.jsx el cual va a utilizar
+                                        cada una de las propiedades de cada uno de los servicios registrados, especificados en 
+                                        el arreglo serviciosRegistrados como items para poder renderizar los elementos*/
       
-      copyserviciosRegistrados: []
+      copyserviciosRegistrados: []     /* Para la busqueda se necesita hacer un filtrado entonces
+                                          se crea una copia del arreglo serviciosRegistrados porque se necesita como
+                                          referencia un arreglo inicial y que el original 
+                                          no sea modificado, mas que sea para añadir o borrar elementos
+                                          por eso se crea una copia con un arreglo vacio 
+                                          es decir se va a buscar sobre copyserviciosRegistrados, el cual requiere 
+                                          hacerse popular*/
 
   };
 }
 
-componentDidMount(){
-  this.initserviciosRegistrados();
+componentDidMount(){                      /* copyserviciosRegistrados requiere 
+                                          hacerse popular, para eso se llamarfuncion componentDidMount,
+                                          dentro de la cual se llama otra función llamada this.initserviciosRegistrado 
+                                          para poder rellenar los servicios registrados tanto la copia como una vez se tengan los
+                                          servicios registrados completos, siempre haya una copia igual a la de los servicios registrados originales*/
+  this.initserviciosRegistrados();    
 }
 
 initserviciosRegistrados = () =>{
-  this.setState((state,props) => ({
+  this.setState((state,props) => ({                            /*llamo al state, así this.setState a modo de función de flecha 
+                                                                  con su state y props de esta manera
+                                                                  funciona de manera asincrona para que cada vez que 
+                                                                  se ejecute initServiciosRegistrados copyserviciosRegistrado va a 
+                                                                  hacer una copia de state.serviciosRegistrados*/
     copyserviciosRegistrados: [...state.serviciosRegistrados]
   }));
   
 }
 
-onSearch = (query) => {
+onSearch = (query) => {                                     /*Se crea funcion de onSearch*/
   if(query === ''){
-    this.setState({copyserviciosRegistrados: [...this.state.serviciosRegistrados]});
+    this.initserviciosRegistrados();                            /*Esta funcion necesita un query, se valida que el query sea vacio o no,
+                                                                  si el query es vacio, se copian los servicios registrados y se los regresa 
+                                                                  al estado inicial, se manda a llamar a 
+                                                                  initserviciosRegistrado() */
 
   }else{
-    const temp = [...this.state.serviciosRegistrados];
+    const temp = [...this.state.serviciosRegistrados];             /*Si contiene texto, se crea un arreglo temporal de serviciosRegistrados
+                                                                     y se crea otro arreglo temporal que se llame res que es lo
+                                                                     que se va a devolver*/       
     let res = [];
 
-  temp.forEach(item =>{ 
-    if(item.Habilidad.toLowerCase().indexOf(query) > -1){
+  temp.forEach(item =>{                                             /*Se crea un forEach para recorrer cada elemento y se valida con un if 
+                                                                      que si el titulo del elemento que se transforma a minusculas es mayor de -1 
+                                                                      cuando aplico un indexOf() el cual me ba a buscar la coincidencia si es -1 
+                                                                      entonces ese resultado se añade al arreglo de res */
+    if(item.Habilidad.toLowerCase().indexOf(query) > -1){   
       res.push(item);
+
+                                                                        /* Se especifica por las propiedades que van a ser filtrados en la busqueda
+                                                                        Ciudad, profesión, Nombre, Habilidad */
+
     }if (item.Ciudad.toLowerCase().indexOf(query) > -1) {
       res.push(item);
     }if(item.Profesion.toLowerCase().indexOf(query) > -1){
@@ -127,9 +157,15 @@ onSearch = (query) => {
     }   
   });
   
-  this.setState({copyserviciosRegistrados: [ ...res]});
+  this.setState({copyserviciosRegistrados: [ ...res]});                  /*Cuando se cumpla el ciclo se actualizará el estado de 
+                                                                            copyserviciosRegistrados que es el que se puede manipular
+                                                                            para que tenga el resultado de res, es decir res es el arreglo
+                                                                            que tiene ya los resultados filtrados deacuerdo al query
+                                                                            que se esta colocando y se lo copia para que sea igual a copyserviciosRegistrados*/
   }
 }
+
+
   render(){  
     return (
     <div className="app">
@@ -137,7 +173,9 @@ onSearch = (query) => {
              <div className="p-3 pb-md-4 mx-auto text-center">
                <h3>
               <Menu title="Buscador de Servicios Registrados" 
-              onsearch={this.onSearch}
+              onsearch={this.onSearch}                          /*se crea evento onsearch que tiene definido el algoritmo para poder filtrar
+                                                                  las busquedas por ciertas propiedades, manda a llamar
+                                                                  a this.onSearch */
               
               />
             
@@ -145,7 +183,15 @@ onSearch = (query) => {
             </div>
       </div>
     <div>
-            <List items={this.state.copyserviciosRegistrados}/>
+            <List items={this.state.copyserviciosRegistrados} /* Se establece un nuevo props, llamado items para enviarle el arreglo al componente List.jsx, se crea con
+                                                                  this porque el componente App.jsx ha sido declarado como un componente clase para dar a entender
+                                                                  que esta bajo el mismo contexto de toda la clase, y de esta manera se determina el estado
+                                                                  state haciendo referencia a la copia de los servicios registrados que es lo que finalmente va a ser
+                                                                  modificado  identica al
+                                                                  arreglo original para enviar este arreglo de datos como si fuera una propiedad 
+                                                                   */
+
+                  />
         </div>
     </div>
   );
