@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
+import Ingeniero from "./ingeniero"
 
 
-const useForm = (callback, validate) => {
+const useForm = (validate) => {
     const [values, setValues] = useState({
       nombre: '',
       email: '',
@@ -10,8 +11,8 @@ const useForm = (callback, validate) => {
       password: '',
       password2: '',
     })
+    const[ingeniero, setIngeniero] = useState();
     const[errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleChange = e =>{
         //este es similar a lo que haciamos para capturar la info del usuario: 
@@ -31,19 +32,15 @@ const useForm = (callback, validate) => {
         e.preventDefault();
 
         setErrors(validate(values));
-        setIsSubmitting(true);
     }
 
-    useEffect(
-        () => {
-          if (Object.keys(errors).length === 0 && isSubmitting) {
-            callback();
-          }
-        },
-        [errors]
-      );
+    const mostrarIngeniero = () =>{
+      setIngeniero(
+        <Ingeniero/>
+      )
+    }
 
-    return {handleChange, values, handleSubmit, errors};
+    return {handleChange, values, handleSubmit, errors, mostrarIngeniero};
 
 }
 

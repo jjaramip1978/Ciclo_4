@@ -5,9 +5,8 @@ import useRegistro from './useRegistro'
 import validate from './validateInfo';
 
 
-const Registro = ({submitForm}) => {
-    const { handleChange, handleSubmit, values, errors } = useRegistro(
-        submitForm,
+const Registro = () => {
+    const { handleChange, handleSubmit, values, errors, mostrarIngeniero } = useRegistro(
         validate
     );
 
@@ -98,6 +97,7 @@ const Registro = ({submitForm}) => {
 
                 <button 
                     className='form-input-btn' 
+                    onClick={mostrarIngeniero}
                 >
                         Registrate como Ingeniero
                 </button>
