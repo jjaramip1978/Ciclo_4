@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import '../components/styles/style-home.css';
+import '../components/styles/bootstrap-home.css';
+import '../components/styles/bootstrap-home.min.css';
 import { Navigation } from "../components/navigation";
 import { Header } from "../components/header";
 import { Features } from "../components/features";

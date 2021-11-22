@@ -1,4 +1,7 @@
 import {Link, NavLink} from 'react-router-dom';
+import '../components/styles/style-home.css';
+import '../components/styles/bootstrap-home.css';
+import '../components/styles/bootstrap-home.min.css';
 
 export const Navigation = (props) => {
   return (
