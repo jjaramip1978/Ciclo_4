@@ -1,8 +1,3 @@
-
-import '../components/styles/style-home.css';
-import '../components/styles/bootstrap-home.css';
-import '../components/styles/bootstrap-home.min.css';
-
 export const Services = (props) => {
   return (
     <div id='services' className='text-center'>
