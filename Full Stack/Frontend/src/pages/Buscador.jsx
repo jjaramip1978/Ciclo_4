@@ -14,8 +14,8 @@ class Buscador extends React.Component {
     constructor(props) {
         super(props);
 
-        {/* estado o state crea un arrego de objetos llamado serviciosRegistrados 
-            con las propiedades de cada servicio registrado*/}
+        /* estado o state crea un arrego de objetos llamado serviciosRegistrados 
+            con las propiedades de cada servicio registrado*/
         this.state = {
             serviciosRegistrados: [
                 {
@@ -128,11 +128,11 @@ class Buscador extends React.Component {
     }
 
     initserviciosRegistrados = () => {
-        {/*llamo al state, así this.setState a modo de función de flecha 
+        /*llamo al state, así this.setState a modo de función de flecha 
         con su state y props de esta manera
         funciona de manera asincrona para que cada vez que 
         se ejecute initServiciosRegistrados copyserviciosRegistrado va a 
-        hacer una copia de state.serviciosRegistrados*/}
+        hacer una copia de state.serviciosRegistrados*/
         this.setState((state, props) => ({
             copyserviciosRegistrados: [...state.serviciosRegistrados]
         }));
@@ -141,23 +141,23 @@ class Buscador extends React.Component {
 
     onSearch = (query) => { /*Se crea funcion de onSearch*/
         if (query === '') {
-            {/*Esta funcion necesita un query, se valida que el query sea vacio o no,
+            /*Esta funcion necesita un query, se valida que el query sea vacio o no,
             si el query es vacio, se copian los servicios registrados y se los regresa 
             al estado inicial, se manda a llamar a 
-            initserviciosRegistrado() */}
+            initserviciosRegistrado() */
             this.initserviciosRegistrados();
 
         } else {
-            {/*Si contiene texto, se crea un arreglo temporal de serviciosRegistrados
+            /*Si contiene texto, se crea un arreglo temporal de serviciosRegistrados
             y se crea otro arreglo temporal que se llame res que es lo
-            que se va a devolver*/}
+            que se va a devolver*/
             const temp = [...this.state.serviciosRegistrados];
             let res = [];
 
-            {/*Se crea un forEach para recorrer cada elemento y se valida con un if 
+            /*Se crea un forEach para recorrer cada elemento y se valida con un if 
             que si el titulo del elemento que se transforma a minusculas es mayor de -1 
             cuando aplico un indexOf() el cual me ba a buscar la coincidencia si es -1 
-            entonces ese resultado se añade al arreglo de res */}
+            entonces ese resultado se añade al arreglo de res */
             temp.forEach(item => {
                 if (item.Habilidad.toLowerCase().indexOf(query) > -1) {
                     res.push(item);
@@ -174,11 +174,11 @@ class Buscador extends React.Component {
                 }
             });
 
-            {/*Cuando se cumpla el ciclo se actualizará el estado de 
+            /*Cuando se cumpla el ciclo se actualizará el estado de 
             copyserviciosRegistrados que es el que se puede manipular
             para que tenga el resultado de res, es decir res es el arreglo
             que tiene ya los resultados filtrados deacuerdo al query
-            que se esta colocando y se lo copia para que sea igual a copyserviciosRegistrados*/}
+            que se esta colocando y se lo copia para que sea igual a copyserviciosRegistrados*/
             this.setState({ copyserviciosRegistrados: [...res] });
         }
     }

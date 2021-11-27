@@ -1,24 +1,35 @@
-// const express = require('express');
-// const morgan = require('morgan');
-// const cors = require('cors');
-// const path = require('path');
-
-import express from 'express';
+/* import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import path from 'path';
+import path from 'path'; */
+
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose')
+require('dotenv').config();
+
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
-
-//Conexión a la base de datos (local)
+/* 
 const mongoose = require('mongoose');
+const morgan = require('morgan')
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const passportJWT = require('passport-jwt');
+const ExtractJwt = passportJWT.ExtractJwt;
+const JwtStrategy = passportJWT.Strategy;
+const jwt = require('jsonwebtoken');
+const config = require('./config'); */
 
-const uri = 'mongodb+srv://ciclo3_Team5:ciclo3_Team5@cluster0.hh4iw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+const uri = process.env.ATLAS_URI;
 const options = {useNewUrlParser: true, useUnifiedTopology: true};
 
 mongoose.connect(uri,options).then(
     ()=>{
-        console.log('Ya Estoy conectado a la BD')
+        console.log('Conexion exitosa a la BD')
+        console.log('Listen on port: ' + process.env.PORT)
     },
     err =>{
         err
@@ -27,10 +38,11 @@ mongoose.connect(uri,options).then(
 
 
 //MIDDLEWARE
-app.use(morgan('tiny'));
-app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({extended: true}));
+
+// app.use(cors());
 
 
 
@@ -41,9 +53,10 @@ app.use(express.urlencoded({ extended: true}))
     
 // });
 
-app.use('/api',require('./routes/consultaprof'));
+app.use('/api',require('./routes/profesionalRoutes'));
 app.use('/api',require('./routes/consultaser'));
 app.use('/api',require('./routes/consultacli'));
+app.use('/auth',authRoutes);
  
 // Middleware para Vue.js router modo history
 const history = require ('connect-history-api-fallback')
@@ -53,13 +66,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //CONFIGURACION DEL PUERTO
 
-// app.listen(3000,function(){
-
-//     console.log("Ek servidor escucha por el puerto 3000");
-// });
-
-
 app.set('puerto',process.env.PORT||3000);
 app.listen(app.get('puerto'),function(){
-    console.log('Configuración dinamica del puerto:  '+app.get('puerto'));
+    console.log('Configuración dinamica del puerto:  '+ app.get('puerto'));
 });

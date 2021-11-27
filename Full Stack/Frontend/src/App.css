@@ -3,6 +3,7 @@
     padding: 20px;
     width: 111%;
   }
+
   #about,
   #services,
   #testimonials,
@@ -15,5 +16,9 @@
   #portfolio {
     width: 110%;
   }
+
 }
 
+textarea {
+  width: 50%;
+}
