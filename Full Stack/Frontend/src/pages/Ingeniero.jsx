@@ -1,9 +1,9 @@
-import { Form } from "../components/form";
+import { Ingeniero } from "../components/ingeniero";
 
 const Registro = () => {
     return (
         <div>
-            <Form />
+            <Ingeniero />
         </div>);
 }
 

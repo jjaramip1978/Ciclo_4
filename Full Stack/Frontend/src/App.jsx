@@ -1,10 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
+import { Home } from "./pages/Home";
 import Registro from "./pages/Registro";
 import Buscador from "./pages/Buscador";
 import { Footer } from "./components/footer";
 import { Navigation } from "./components/navigation";
+import { Ingeniero } from "./components/ingeniero";
+import { Empleador } from "./components/empleador";
 
 function App() {
   return (
@@ -12,7 +14,6 @@ function App() {
 
       <Router>
         <Navigation />
-
         <Switch>
           <Route exact path="/">
             <Home />
@@ -20,13 +21,19 @@ function App() {
           <Route path="/registro">
             <Registro />
           </Route>
+          <Route path="/ingeniero">
+            <Ingeniero />
+          </Route>
+          <Route path="/empleador">
+            <Empleador />
+          </Route>
           <Route path="/buscador">
             <Buscador />
           </Route>
         </Switch>
         <Footer />
       </Router>
-    </div>
+    </div >
   );
 }
 
