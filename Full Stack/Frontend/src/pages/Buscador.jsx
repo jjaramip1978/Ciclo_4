@@ -1,8 +1,6 @@
 import React from 'react';
 import Menu from '../components/Menu';
 import List from '../components/List';
-import { Navigation } from "../components/navigation";
-import { Footer } from "../components/footer";
 
 
 class Buscador extends React.Component {
@@ -187,7 +185,6 @@ class Buscador extends React.Component {
     render() {
         return (
             <div className="app">
-                <Navigation />
                 <div className="container-lg bg-light">
                     <div className="p-3 pb-md-4 mx-auto text-center">
                         <h3>
@@ -210,7 +207,6 @@ class Buscador extends React.Component {
 
                     <List items={this.state.copyserviciosRegistrados} />
                 </div>
-                <Footer />
             </div>
         );
     }

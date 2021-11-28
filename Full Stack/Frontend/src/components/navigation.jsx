@@ -1,4 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
+// import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/js/bootstrap.bundle.js";
+// import "bootstrap-icons/font/bootstrap-icons.css";
 
 export const Navigation = (props) => {
   return (
@@ -10,11 +13,26 @@ export const Navigation = (props) => {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <NavLink class="nav-link" to="/registro">Registrarse <span class="sr-only">(current)</span></NavLink>
+          <li class="nav-item dropdown">
+            <NavLink class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Buscador
+            </NavLink>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <NavLink class="dropdown-item" to="/buscador">Buscador de Ingenieros</NavLink>
+              <NavLink class="dropdown-item" to="#">Buscador de Servicios</NavLink>
+            </div>
           </li>
           <li class="nav-item">
-            <NavLink class="nav-link" to="/buscador">Buscador</NavLink>
+            <NavLink class="nav-link" to="#">Iniciar Sesion</NavLink>
+          </li>
+          <li class="nav-item dropdown">
+            <NavLink class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Registrate
+            </NavLink>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <NavLink class="dropdown-item" to="/registro">Ingenieros</NavLink>
+              <NavLink class="dropdown-item" to="/registro">Empresa</NavLink>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <NavLink class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

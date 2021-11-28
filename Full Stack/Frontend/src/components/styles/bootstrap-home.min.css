@@ -4709,7 +4709,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
     }
 
     .navbar-nav>li {
-        float: left
+        float: right
     }
 
     .navbar-nav>li>a {
