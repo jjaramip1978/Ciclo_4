@@ -2,8 +2,15 @@ const Cliente = require('../models/cliente');
 
 module.exports.nuevoCliente = async (req, res) => {
     const body = req.body;
-    const nuevoCl = await Cliente.create(body);
-    res.status(200).json(nuevoCl);
+    try{
+        const nuevoCliente = await Cliente.create(body);
+        res.json(nuevoCliente);
+    }catch (error){
+        return res.status(400).json({
+            mensaje: 'Ocurrio un error !!!',
+            error
+        })
+    }
 }
 
 module.exports.buscarCliente = async (req, res) => {

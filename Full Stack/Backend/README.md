@@ -7,3 +7,6 @@ Backend del ciclo 4, contiene los documentos de cliente, profesional, servicio y
 ### 1. Librerias
 Installar las librerias para su funcionamiento
 npm install bcrypt cookie-parser cors dotenv express jsonwebtoken mongoose morgan nodemon validator express-validator config
+
+### 2. Iniciar el Backend
+npm start
