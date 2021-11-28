@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const profesionalSchema = new Schema({
@@ -16,4 +16,4 @@ const profesionalSchema = new Schema({
 
 const Profesion = mongoose.model('Profesion',profesionalSchema);
 
-export default Profesion;
+module.exports = Profesion;
