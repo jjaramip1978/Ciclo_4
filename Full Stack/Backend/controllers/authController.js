@@ -1,11 +1,28 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+const cookieParser = require('cookie-parser');
 const validationResult = require('express-validator').validationResult;
+
+const maxAge = 24 * 60 * 60 * 1000;
+
+const createToken = (user) => {
+    const payload = {
+        user: {
+            id: user.id
+        }
+    };
+    return jwt.sign(payload, "config.get('jwtSecret')", { expiresIn: maxAge });
+}
 
 
 module.exports.signUp = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({
+            errors: errors.array()
+        });
+    }
     const { email, password } = req.body;
     console.log(email, password);
     try {
@@ -18,21 +35,10 @@ module.exports.signUp = async (req, res, next) => {
             });
         }
         user = await User.create({ email, password });
+        token = createToken(user);
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
         res.json({id: user.id, email: user.email});
-        // const payload = {
-        //     user: {
-        //         id: user.id
-        //     }
-        // };
-        // jwt.sign(
-        //     payload,
-        //     config.get('jwtSecret'),
-        //     { expiresIn: 360000 },
-        //     (err, token) => {
-        //         if (err) throw err;
-        //         res.json({ token });
-        //     }
-        // );
+
     } catch (err) {
         console.error(err.message);
         res.status(500).send(err.message);
@@ -64,21 +70,10 @@ module.exports.Login = async (req, res, next) => {
                 }]
             });
         }
-        const payload = {
-            user: {
-                id: user.id
-            }
-        };
-        console.log(payload);
-        // jwt.sign(
-        //     payload,
-        //     config.get('jwtSecret'),
-        //     { expiresIn: 360000 },
-        //     (err, token) => {
-        //         if (err) throw err;
-        //         res.json({ token });
-        //     }
-        // );
+        
+        token = createToken(user);
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
+        res.json({ token });
     } catch (err) {
         console.error(err.message);
         res.status(500).send(err.message);
@@ -86,6 +81,6 @@ module.exports.Login = async (req, res, next) => {
 }
 
 module.exports.Logout = function(req, res) {
-    req.logout();
-    res.json({ msg: 'Success' });
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.send('Logged out');
 }
