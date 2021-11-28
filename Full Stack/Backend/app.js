@@ -6,6 +6,7 @@ import path from 'path'; */
 const express = require('express');
 const mongoose = require('mongoose')
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const app = express();
 
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', require('./routes/profesionalRoutes'));
 app.use('/api', require('./routes/servicioRoutes'));
 app.use('/api', require('./routes/clienteRoutes'));
+app.use(cookieParser());
 app.use('/auth', authRoutes);
 
 //CONFIGURACION DEL PUERTO
