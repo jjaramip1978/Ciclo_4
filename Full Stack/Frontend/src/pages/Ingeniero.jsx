@@ -1,12 +1,12 @@
 import { Navigation } from "../components/navigation";
-import { Form } from "../components/form";
+import { Ingeniero } from "../components/ingeniero";
 import { Footer } from "../components/footer";
 
 const Registro = () => {
     return (
         <div>
             <Navigation />
-            <Form />
+            <Ingeniero />
             <Footer />
         </div>);
 }
