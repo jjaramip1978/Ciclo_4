@@ -16,4 +16,4 @@ const profesionalSchema = new Schema({
 
 const Profesion = mongoose.model('Profesion',profesionalSchema);
 
-export default Profesion;
+module.exports = Profesion;

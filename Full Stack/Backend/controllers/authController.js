@@ -1,11 +1,13 @@
-module.exports.postSignup = async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(422).json({
-            errors: errors.array()
-        });
-    }
+const User = require('../models/user')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const config = require('config');
+const validationResult = require('express-validator').validationResult;
+
+
+module.exports.signUp = async (req, res, next) => {
     const { email, password } = req.body;
+    console.log(email, password);
     try {
         let user = await User.findOne({ email });
         if (user) {
@@ -15,34 +17,29 @@ module.exports.postSignup = async (req, res, next) => {
                 }]
             });
         }
-        user = new User({
-            email,
-            password
-        });
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt);
-        await user.save();
-        const payload = {
-            user: {
-                id: user.id
-            }
-        };
-        jwt.sign(
-            payload,
-            config.get('jwtSecret'),
-            { expiresIn: 360000 },
-            (err, token) => {
-                if (err) throw err;
-                res.json({ token });
-            }
-        );
+        user = await User.create({ email, password });
+        res.json({id: user.id, email: user.email});
+        // const payload = {
+        //     user: {
+        //         id: user.id
+        //     }
+        // };
+        // jwt.sign(
+        //     payload,
+        //     config.get('jwtSecret'),
+        //     { expiresIn: 360000 },
+        //     (err, token) => {
+        //         if (err) throw err;
+        //         res.json({ token });
+        //     }
+        // );
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send(err.message);
     }
 };
 
-module.exports.postSignin = async (req, res, next) => {
+module.exports.Login = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).json({
@@ -72,39 +69,23 @@ module.exports.postSignin = async (req, res, next) => {
                 id: user.id
             }
         };
-        jwt.sign(
-            payload,
-            config.get('jwtSecret'),
-            { expiresIn: 360000 },
-            (err, token) => {
-                if (err) throw err;
-                res.json({ token });
-            }
-        );
+        console.log(payload);
+        // jwt.sign(
+        //     payload,
+        //     config.get('jwtSecret'),
+        //     { expiresIn: 360000 },
+        //     (err, token) => {
+        //         if (err) throw err;
+        //         res.json({ token });
+        //     }
+        // );
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send(err.message);
     }
 }
 
-module.exports.postLogin = function(req, res, next) {
-    passport.authenticate('local', { session: false }, (err, user, info) => {
-        if (err || !user) {
-            return res.status(400).json({
-                message: info.message
-            });
-        }
-        req.login(user, { session: false }, (err) => {
-            if (err) {
-                res.send(err);
-            }
-            const token = jwt.sign({ user }, 'secret');
-            return res.json({ user, token });
-        });
-    })(req, res, next);
-}
-
-module.exports.postLogout = function(req, res) {
+module.exports.Logout = function(req, res) {
     req.logout();
     res.json({ msg: 'Success' });
 }
