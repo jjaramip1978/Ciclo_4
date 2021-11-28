@@ -18,20 +18,20 @@ export const Navigation = (props) => {
               Buscador
             </NavLink>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink class="dropdown-item" to="/buscador">Buscador de Ingenieros</NavLink>
-              <NavLink class="dropdown-item" to="#">Buscador de Servicios</NavLink>
+              <Link class="dropdown-item" to="/buscador">Buscador de Ingenieros</Link>
+              <Link class="dropdown-item" to="#">Buscador de Servicios</Link>
             </div>
           </li>
           <li class="nav-item">
             <NavLink class="nav-link" to="#">Iniciar Sesion</NavLink>
           </li>
           <li class="nav-item dropdown">
-            <NavLink class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link class="nav-link dropdown-toggle" to="/registro" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Registrate
-            </NavLink>
+            </Link>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink class="dropdown-item" to="/registro">Ingenieros</NavLink>
-              <NavLink class="dropdown-item" to="/registro">Empresa</NavLink>
+              <Link class="dropdown-item" to="/ingeniero">Ingenieros</Link>
+              <Link class="dropdown-item" to="/empleador">Empresa</Link>
             </div>
           </li>
           <li class="nav-item dropdown">
