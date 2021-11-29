@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import "bootstrap/dist/css/bootstrap.css";
 // import "bootstrap/dist/js/bootstrap.bundle.js";
 // import "bootstrap-icons/font/bootstrap-icons.css";
@@ -14,9 +14,9 @@ export const Navigation = (props) => {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <NavLink class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Buscador
-            </NavLink>
+            </Link>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link class="dropdown-item" to="/buscador">Buscador de Ingenieros</Link>
               <Link class="dropdown-item" to="#">Buscador de Servicios</Link>
@@ -35,14 +35,13 @@ export const Navigation = (props) => {
             </div>
           </li>
           <li class="nav-item dropdown">
-            <NavLink class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </NavLink>
+            <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Usuario
+            </Link>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink class="dropdown-item" to="#">Action</NavLink>
-              <NavLink class="dropdown-item" to="#">Another action</NavLink>
+              <Link class="dropdown-item" to="#">Editar Perfil</Link>
               <div class="dropdown-divider"></div>
-              <NavLink class="dropdown-item" to="#">Something else here</NavLink>
+              <Link class="dropdown-item" to="#">Cerrar Sesion</Link>
             </div>
           </li>
         </ul>
