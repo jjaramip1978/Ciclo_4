@@ -13,20 +13,10 @@ export const Ingeniero = () => {
           <div className="form-inputs2
         ">
             <h1 className="titulo">Registro Ingeniero</h1>
-            <label className="form-labelFirst">Nombre</label>
-            <input
-              className="form-input"
-              type="text"
-              name="nombre"
-              placeholder="Ingrese su nombre completo"
-              //Para guardar la información digitada por el usuario
-              value={values.nombre}
-              onChange={handleChange}
-            />
-            {/* {errors.nombre && <p>{errors.nombre}</p>} */}
-          </div>
-          <div className="form-inputs2">
-            <label className="form-label">Email</label>
+
+
+
+            <label className="form-labelFirst">Email</label>
             <input
               className="form-input"
               type="email"
@@ -34,6 +24,32 @@ export const Ingeniero = () => {
               placeholder="Ingrese email"
               //Para guardar la información digitada por el usuario
               value={values.email}
+              onChange={handleChange}
+            />
+            {/* {errors.nombre && <p>{errors.nombre}</p>} */}
+          </div>
+          <div className="form-inputs2">
+            <label className="form-label">Contraseña</label>
+            <input
+              className="form-input"
+              type="password"
+              name="password"
+              placeholder="Ingrese una contraseña"
+              //Para guardar la información digitada por el usuario
+              value={values.password}
+              onChange={handleChange}
+            />
+            {/* {errors.password && <p>{errors.password}</p>} */}
+          </div>
+          <div className="form-inputs2">
+            <label className="form-label">Nombre</label>
+            <input
+              className="form-input"
+              type="text"
+              name="nombre"
+              placeholder="Ingrese su nombre completo"
+              //Para guardar la información digitada por el usuario
+              value={values.nombre}
               onChange={handleChange}
             />
             {/*    {errors.email && <p>{errors.email}</p>} */}
@@ -64,20 +80,7 @@ export const Ingeniero = () => {
             />
             {/* {errors.celular && <p>{errors.celular}</p>} */}
           </div>
-          <div className="form-inputs2">
-            <label className="form-label">Contraseña</label>
-            <input
-              className="form-input"
-              type="password"
-              name="password"
-              placeholder="Ingrese una contraseña"
-              //Para guardar la información digitada por el usuario
-              value={values.password}
-              onChange={handleChange}
-            />
-            {/* {errors.password && <p>{errors.password}</p>} */}
-          </div>
-          <div className="form-inputs2">
+          {/* <div className="form-inputs2">
             <label className="form-label">Confirma contraseña</label>
             <input
               className="form-input"
@@ -88,12 +91,13 @@ export const Ingeniero = () => {
               value={values.password2}
               onChange={handleChange}
             />
-            {/* {errors.password2 && <p>{errors.password2}</p>} */}
-          </div>
+            {errors.password2 && <p>{errors.password2}</p>}
+          </div> */}
           <div className="form-inputs2">
             <label className="form-label">Profesión</label>
-            <select >
-              <option selected >Ingenieria</option>
+            <select
+              value={values.profesion} onChange={handleChange} name="profesion">
+              {/* <option selected >Ingenieria</option> */}
               <option value="1" >Ingeniería Agrónoma</option>
               <option value="2">Ingeniería Civil</option>
               <option value="3">Ingeniería de Minas y Metalurgia</option>
@@ -131,13 +135,22 @@ export const Ingeniero = () => {
 
           <div className="form-inputs2">
             <label className="form-label">Descripción</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describa de forma breve en que se especializa" ></textarea>
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              placeholder="Describa de forma breve en que se especializa"
+              value={values.descripcion}
+              onChange={handleChange}
+            ></textarea>
             {/* {errors.password2 && <p>{errors.password2}</p>} */}
           </div>
 
           <div className="form-inputs2">
             <label className="form-label">Rango de valor por tus servicios</label>
-            <select class="form-input" aria-label="Default select example">
+            <select class="form-input" aria-label="Default select example"
+              value={values.value} onChange={handleChange}
+            >
               <option selected >Elige un rango</option>
               <option value="1">$2.000.000 - $3.000.000</option>
               <option value="2">$3.000.000 - $4.000.000</option>
