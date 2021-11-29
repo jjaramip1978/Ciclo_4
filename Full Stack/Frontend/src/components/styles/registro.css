@@ -100,7 +100,7 @@
   margin-bottom: 3rem;
   width: 950px;
   height: auto;
-  padding-bottom: 2rem;
+  padding-bottom  : 2rem;
   justify-content: center;
   position: center;
   border-radius: 10px 10px 10px 10px;
@@ -136,11 +136,11 @@
 
 .contenedor{
   margin-top: 3rem;
+
 }
 .contenedor2{
   margin-top: 10rem;
 }
-
 
 .form {
   position: absolute;
