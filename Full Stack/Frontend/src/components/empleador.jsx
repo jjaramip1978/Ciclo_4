@@ -3,28 +3,15 @@ import "./styles/registro.css";
 import useRegistro from "./useRegistro";
 
 export const Empleador = () => {
-  const { handleChange, handleSubmit, values } = useRegistro()
+  const { handleChange, handleSubmit2, values } = useRegistro()
 
   return (
     <div className='form-content-right3'>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit2} noValidate>           
         <div className='contenedor'>
-          <div className="form-inputs2
-        ">
-            <h1 className="titulo">Registro Empleador</h1>
-            <label className="form-labelFirst">Nombre</label>
-            <input
-              className="form-input"
-              type="text"
-              name="nombre"
-              placeholder="Ingrese su nombre completo"
-              //Para guardar la información digitada por el usuario
-              value={values.nombre}
-              onChange={handleChange}
-            />
-            {/* {errors.nombre && <p>{errors.nombre}</p>} */}
-          </div>
+
           <div className="form-inputs2">
+              <h1 className="titulo">Registro Empleador</h1>
             <label className="form-label">Email</label>
             <input
               className="form-input"
@@ -37,6 +24,35 @@ export const Empleador = () => {
             />
             {/*    {errors.email && <p>{errors.email}</p>} */}
           </div>
+
+          <div className="form-inputs2">
+            <label className="form-label">Contraseña</label>
+            <input
+              className="form-input"
+              type="password"
+              name="password"
+              placeholder="Ingrese una contraseña"
+              //Para guardar la información digitada por el usuario
+              value={values.password}
+              onChange={handleChange}
+            />
+            {/* {errors.password && <p>{errors.password}</p>} */}
+          </div>
+
+          <div className="form-inputs2">
+            <label className="form-labelFirst">Nombre</label>
+            <input
+              className="form-input"
+              type="text"
+              name="nombre"
+              placeholder="Ingrese su nombre completo"
+              //Para guardar la información digitada por el usuario
+              value={values.nombre}
+              onChange={handleChange}
+            />
+            {/* {errors.nombre && <p>{errors.nombre}</p>} */}
+          </div>
+
           <div className="form-inputs2">
             <label className="form-label">Ciudad Residencia</label>
             <input
@@ -65,21 +81,7 @@ export const Empleador = () => {
             {/* {errors.celular && <p>{errors.celular}</p>} */}
           </div>
 
-          <div className="form-inputs2">
-            <label className="form-label">Contraseña</label>
-            <input
-              className="form-input"
-              type="password"
-              name="password"
-              placeholder="Ingrese una contraseña"
-              //Para guardar la información digitada por el usuario
-              value={values.password}
-              onChange={handleChange}
-            />
-            {/* {errors.password && <p>{errors.password}</p>} */}
-          </div>
-
-          <div className="form-inputs2">
+{/*           <div className="form-inputs2">
             <label className="form-label">Confirma contraseña</label>
             <input
               className="form-input"
@@ -90,8 +92,8 @@ export const Empleador = () => {
               value={values.password2}
               onChange={handleChange}
             />
-            {/* {errors.password2 && <p>{errors.password2}</p>} */}
-          </div>
+            {/* {errors.password2 && <p>{errors.password2}</p>} 
+          </div> */}
 
           <br />
 
@@ -105,7 +107,7 @@ export const Empleador = () => {
             <input
               className="form-input"
               type="text"
-              name="nombre"
+              name="empresa"
               placeholder="Ingrese nombre de la empresa a la que pertenece"
               //Para guardar la información digitada por el usuario
               value={values.empresa}
@@ -117,6 +119,7 @@ export const Empleador = () => {
           <button className='form-input-btn2' type='submit'>
             Registrate
           </button>
+          
         </div>
       </form>
     </div>

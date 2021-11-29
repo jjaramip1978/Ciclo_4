@@ -98,19 +98,19 @@ export const Ingeniero = () => {
             <select
               value={values.profesion} onChange={handleChange} name="profesion">
               {/* <option selected >Ingenieria</option> */}
-              <option value="1" >Ingeniería Agrónoma</option>
-              <option value="2">Ingeniería Civil</option>
-              <option value="3">Ingeniería de Minas y Metalurgia</option>
-              <option value="4">Ingeniería en Sistemas</option>
-              <option value="5">Ingeniería Eléctrica</option>
-              <option value="6">Ingeniería en Telecomunicaciones</option>
-              <option value="7">Ingeniería Electrónica</option>
-              <option value="8">Ingeniería en Energía</option>
-              <option value="9">Ingeniería en Gestión Ambiental</option>
-              <option value="10">Ingeniería en Logística</option>
-              <option value="11">Ingeniería Industrial</option>
-              <option value="12">Ingeniería Mecatrónica</option>
-              <option value="13">Ingeniería Química</option>
+              <option >Ingeniería Agrónoma</option>
+              <option >Ingeniería Civil</option>
+              <option >Ingeniería de Minas y Metalurgia</option>
+              <option >Ingeniería en Sistemas</option>
+              <option >Ingeniería Eléctrica</option>
+              <option >Ingeniería en Telecomunicaciones</option>
+              <option >Ingeniería Electrónica</option>
+              <option >Ingeniería en Energía</option>
+              <option >Ingeniería en Gestión Ambiental</option>
+              <option >Ingeniería en Logística</option>
+              <option >Ingeniería Industrial</option>
+              <option >Ingeniería Mecatrónica</option>
+              <option >Ingeniería Química</option>
             </select>
             {/* {errors.password2 && <p>{errors.password2}</p>} */}
           </div>
@@ -136,9 +136,10 @@ export const Ingeniero = () => {
           <div className="form-inputs2">
             <label className="form-label">Descripción</label>
             <textarea
-              class="form-control"
+              class="form-inputD"
               id="exampleFormControlTextarea1"
               rows="3"
+              name="descripcion"
               placeholder="Describa de forma breve en que se especializa"
               value={values.descripcion}
               onChange={handleChange}
@@ -148,15 +149,15 @@ export const Ingeniero = () => {
 
           <div className="form-inputs2">
             <label className="form-label">Rango de valor por tus servicios</label>
-            <select class="form-input" aria-label="Default select example"
-              value={values.value} onChange={handleChange}
+            <select class="form-input" aria-label="Default select example" name="valor"
+              value={values.valor} onChange={handleChange}
             >
               <option selected >Elige un rango</option>
-              <option value="1">$2.000.000 - $3.000.000</option>
-              <option value="2">$3.000.000 - $4.000.000</option>
-              <option value="3">$4.000.000- $5.000.000</option>
-              <option value="4">$5.000.000 - $6.000.000</option>
-              <option value="5">$6.000.000 o más</option>
+              <option >$2.000.000 - $3.000.000</option>
+              <option >$3.000.000 - $4.000.000</option>
+              <option >$4.000.000- $5.000.000</option>
+              <option >$5.000.000 - $6.000.000</option>
+              <option >$6.000.000 o más</option>
             </select>
             {/* {errors.password2 && <p>{errors.password2}</p>} */}
           </div>
