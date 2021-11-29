@@ -232,6 +232,22 @@
   font-size: 1.5rem;
 }
 
+.form-inputD {
+  display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 60px;
+  width: 100%;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.form-inputD::placeholder {
+  color: #595959;
+  font-size: 14px;
+}
+
 .form-input::placeholder {
   color: #595959;
   font-size: 14px;

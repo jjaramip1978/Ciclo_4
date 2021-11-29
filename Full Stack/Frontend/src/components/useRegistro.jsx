@@ -11,9 +11,10 @@ const useForm = (validate) => {
         celular: '',
         profesion: '',
         habilidad: '',
-        descripcion: 'Descripcion',
+        descripcion: '',
         password: '',
         valor: '',
+        empresa: ''
     })
     const [errors, setErrors] = useState({})
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -34,7 +35,6 @@ const useForm = (validate) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        //para borrar el contenido del formulario automaticamente y dejar los campos en blanco
         const email = values.email;
         const password = values.password;
         const nombre = values.nombre;
@@ -68,8 +68,39 @@ const useForm = (validate) => {
         // setErrors(validate(values));
     }
 
+    const handleSubmit2 = e => {
+        e.preventDefault();
+        const email = values.email;
+        const password = values.password;
+        const nombre = values.nombre;
+        const ciudad = values.ciudad;
+        const celular = values.celular;
+        const empresa = values.empresa;
 
-    return { handleChange, values, handleSubmit, errors };
+        console.log(email, password, nombre, ciudad, celular, empresa);
+        axios.post("http://localhost:5000/auth/signUp", { email, password })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        axios.post("http://localhost:5000/api/nuevoCliente", { nombre, email, ciudad, celular, empresa})
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        const { name } = e.target
+        setValues({
+            ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
+            [name]: "" //name es la etiqueta que se le da al input como name="email"
+        })
+        // setErrors(validate(values));
+    }
+
+    return { handleChange, values, handleSubmit,handleSubmit2, errors };
 
 }
 
