@@ -109,8 +109,31 @@
   );
 }
 
+.form-content-right4 {
+  margin-left: 25rem;
+  margin-bottom: 18.5rem;
+  width: 950px;
+  height: 400px;
+  justify-content: center;
+  position: center;
+  border-radius: 10px 10px 10px 10px;
+  background: linear-gradient(
+    90deg,
+    rgb(178, 178, 178) 0%,
+    rgb(178, 178, 178) 100%
+  );
+}
+
+.form-content-right4 p{
+  padding-top: 2%;
+  margin-top: 6rem;
+  align-content: center;
+  font-size: 2.3rem;
+
+}
+
 .contenedor{
-  margin-top: 3rem;
+  margin-top: 10rem;
 }
 
 

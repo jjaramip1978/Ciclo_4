@@ -7,6 +7,7 @@ import { Footer } from "./components/footer";
 import { Navigation } from "./components/navigation";
 import { Ingeniero } from "./components/ingeniero";
 import { Empleador } from "./components/empleador";
+import { InicioSesion } from "./components/inicioSesion";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/empleador">
             <Empleador />
+          </Route>
+          <Route path="/inicio-sesion">
+            <InicioSesion />
           </Route>
           <Route path="/buscador">
             <Buscador />
