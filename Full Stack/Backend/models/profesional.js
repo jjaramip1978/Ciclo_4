@@ -3,12 +3,14 @@ const Schema = mongoose.Schema;
 
 const profesionalSchema = new Schema({
 
-    documento:{type:String, required:[true, 'Documento obligatorio']},
     nombre:{type:String, required:[true, 'Nombre Requerido']},
-    correo:{type:String, required:[true, 'Correo Obligatorio']},
-    telefono:String,
+    email:{type:String, required:[true, 'Email Obligatorio']},
+    ciudad:{type:String, required:[true, 'Ciudad Obligatoria']},
+    celular:{String, required:[true, 'Celular Obligatorio']},
     profesion:{type:String, requiered:[true, 'Profesion requerida']},
-    ciudad:String,
+    habilidad:{type:String, requiered:[true, 'Habilidad requerida']},
+    descripcion:{type:String, requiered:[true, 'Descripcion requerida']},
+    valor:{type:String, requiered:[true, 'Valor requerido']},
     fechaRegistro:{type:Date, default:Date.now}
 })
 
