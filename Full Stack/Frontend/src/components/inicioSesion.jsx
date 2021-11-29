@@ -18,7 +18,7 @@ export const InicioSesion = () => {
     
     <div className='form-content-right4'>
       <form onSubmit={handleSubmit} noValidate>
-        <div className='contenedor'>
+        <div className='contenedor2'>
         <div className="form-inputs2">
             <div class="col-sm-12 d-flex justify-content-center">
             <p class="text-uppercase"><strong>Iniciar Sesión</strong></p>
