@@ -7,9 +7,16 @@ const express = require('express');
 const mongoose = require('mongoose')
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 require('dotenv').config();
-const app = express();
 
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200,
+    credentials: true,
+}
+
+const app = express();
 
 const authRoutes = require('./routes/authRoutes');
 
@@ -30,6 +37,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
+app.use(cors(corsOptions));
 
 app.use('/api', require('./routes/profesionalRoutes'));
 app.use('/api', require('./routes/servicioRoutes'));

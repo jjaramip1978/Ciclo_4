@@ -80,10 +80,11 @@
 }
 
 .form-content-right2 {
-  margin-left: 25rem;
+  margin-left: 20rem;
   margin-bottom: 3rem;
   width: 950px;
-  height: 930px;
+  height: auto;
+  padding-bottom: 2rem;
   justify-content: center;
   position: center;
   border-radius: 10px 10px 10px 10px;
@@ -95,10 +96,11 @@
 }
 
 .form-content-right3 {
-  margin-left: 25rem;
+  margin-left: 20rem;
   margin-bottom: 3rem;
   width: 950px;
-  height: 760px;
+  height: auto;
+  padding-bottom  : 2rem;
   justify-content: center;
   position: center;
   border-radius: 10px 10px 10px 10px;
@@ -135,10 +137,6 @@
 .contenedor{
   margin-top: 3rem;
 }
-.contenedor2{
-  margin-top: 10rem;
-}
-
 
 .form {
   position: absolute;
@@ -331,4 +329,13 @@
   text-decoration: none;
   color: #27cdff;
   font-weight: 600;
+}
+
+.titulo{
+  font-size: 4rem;
+  text-align: center;
+  /* width: 80%; */
+  padding-top: 2rem;
+  margin-bottom: 1rem; 
+  color: #fff;
 }
