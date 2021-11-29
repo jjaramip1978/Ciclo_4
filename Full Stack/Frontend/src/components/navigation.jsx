@@ -23,7 +23,7 @@ export const Navigation = (props) => {
             </div>
           </li>
           <li class="nav-item">
-            <NavLink class="nav-link" to="#">Iniciar Sesion</NavLink>
+            <Link class="nav-link" to="/inicio-sesion">Iniciar Sesion</Link>
           </li>
           <li class="nav-item dropdown">
             <Link class="nav-link dropdown-toggle" to="/registro" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

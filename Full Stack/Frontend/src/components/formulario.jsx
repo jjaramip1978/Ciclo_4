@@ -39,7 +39,7 @@ export const Form = (props) => {
 
                     <span className='form-input-login'>
 
-                        Ya tienes una cuenta? Login <a href='/ingeniero'>aquí</a>
+                        Ya tienes una cuenta? Login <a href='/inicio-sesion'>aquí</a>
                     </span>
 
             </form>
