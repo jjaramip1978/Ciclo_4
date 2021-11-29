@@ -1,17 +1,19 @@
 import React from "react";
 import "./styles/registro.css";
+import axios from "axios";
 //import useRegistro from "./useRegistro";
 import { useState} from 'react';
 
 export const InicioSesion = () => {
     const [email, setEmail] = useState(""); 
-    const [contraseña, setConstraseña] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         //para borrar el contenido del formulario automaticamente y dejar los campos en blanco
+        axios.post("http://localhost:5000/auth/login", { email, password })
         setEmail("");
-        setConstraseña("");
+        setPassword("");
     }
 
   return (
@@ -45,9 +47,9 @@ export const InicioSesion = () => {
             name="password"
             placeholder="Ingrese una contraseña"
             //Para guardar la información digitada por el usuario
-            value={contraseña}
+            value={password}
             onChange={(e) => {
-                setConstraseña(e.target.value);
+                setPassword(e.target.value);
             }}
           />
           {/* {errors.password && <p>{errors.password}</p>} */}
