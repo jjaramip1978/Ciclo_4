@@ -1,10 +1,3 @@
-You can run this project with the following command sequence:
-
-### `npm install react-scripts`
-### `npm install react-router-dom@5.2.0`
-### `npm install react-helmet`
-### `npm start`
-
 # React JS Landing Page Template
 
 Frontend del proyecto 
