@@ -81,10 +81,10 @@ export const IngenieroUpdate = () => {
   }, [])
 
   const actualizar = () => {
-    const id = "61a574a8b4e553549f20ec30";
+    const id = "61a5a2bf6834401621695724";
     axios.get(`http://localhost:5000/api/buscarProfesional/${id}`).then(res => {
       console.log(values);
-      // values.id = id;
+      values.id = id;
       values.email = res.data.email;
       values.nombre = res.data.nombre;
       values.ciudad = res.data.ciudad;
