@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
-// import "bootstrap/dist/css/bootstrap.css";
-// import "bootstrap/dist/js/bootstrap.bundle.js";
-// import "bootstrap-icons/font/bootstrap-icons.css";
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 export const Navigation = (props) => {
+  const handleLogout = () => {
+    axios.post('http://localhost:5000/auth/logout')
+  }
+
   return (
     <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
       <Link class="navbar-brand" to="/">INGENIO</Link>
@@ -39,9 +43,9 @@ export const Navigation = (props) => {
               Usuario
             </Link>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link class="dropdown-item" to="#">Editar Perfil</Link>
+              <Link class="dropdown-item" to="/ingenieroUpdate">Editar Perfil</Link>
               <div class="dropdown-divider"></div>
-              <Link class="dropdown-item" to="#">Cerrar Sesion</Link>
+              <Link class="dropdown-item" to="#" onClick={handleLogout}>Cerrar Sesion</Link>
             </div>
           </li>
         </ul>

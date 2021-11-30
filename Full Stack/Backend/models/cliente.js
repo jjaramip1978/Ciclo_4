@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const clienteSchema = new Schema({
 
     //documento:{type:String, required:[true, 'Documento obligatorio']},
+    email:{unique: [true, 'Email is already in use'], type:String, required:[true, 'Email Requerido']},
     nombre:{type:String, required:[true, 'Nombre Requerido']},
-    email:{type:String, required:[true, 'Correo Obligatorio']},
     celular:{type:String, required:[true, 'Correo Obligatorio']},
     ciudad:{type:String, required:[true, 'Correo Obligatorio']},
     empresa:{type:String, requiered:[true, 'Valor requerido']},
