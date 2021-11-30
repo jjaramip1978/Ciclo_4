@@ -31,7 +31,7 @@ export const InicioSesion = () => {
         <div className='contenedor2'>
           <div className="form-inputs2">
             <div class="col-sm-12 d-flex justify-content-center">
-              <p class="text-uppercase"><strong>Iniciar Sesión</strong></p>
+              <p className="text-uppercase"><strong>Iniciar Sesión</strong></p>
             </div>
             <label className="form-labelFirst">Email</label>
             <input

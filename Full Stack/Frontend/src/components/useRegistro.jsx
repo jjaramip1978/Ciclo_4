@@ -5,6 +5,7 @@ axios.defaults.withCredentials = true;
 
 const useForm = (validate) => {
     const [values, setValues] = useState({
+        id: '61a574a8b4e553549f20ec30',
         nombre: '',
         email: '',
         ciudad: '',
@@ -16,8 +17,10 @@ const useForm = (validate) => {
         valor: '',
         empresa: ''
     })
-    const [errors, setErrors] = useState({})
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [errors, 
+        // setErrors
+    ] = useState({})
+    // const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleChange = e => {
         //este es similar a lo que haciamos para capturar la info del usuario: 
@@ -49,6 +52,7 @@ const useForm = (validate) => {
         axios.post("http://localhost:5000/auth/signUp", { email, password })
             .then(res => {
                 console.log(res);
+                console.log("Usuario registrado");
             })
             .catch(err => {
                 console.log(err);
@@ -78,14 +82,7 @@ const useForm = (validate) => {
         const empresa = values.empresa;
 
         console.log(email, password, nombre, ciudad, celular, empresa);
-        axios.post("http://localhost:5000/auth/signUp", { email, password })
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        axios.post("http://localhost:5000/api/nuevoCliente", { nombre, email, ciudad, celular, empresa})
+        axios.post("http://localhost:5000/api/nuevoCliente", { nombre, email, ciudad, celular, empresa })
             .then(res => {
                 console.log(res);
             })
@@ -100,7 +97,35 @@ const useForm = (validate) => {
         // setErrors(validate(values));
     }
 
-    return { handleChange, values, handleSubmit,handleSubmit2, errors };
+    const handleSubmit3 = e => {
+        e.preventDefault();
+        const id = values.id;
+        const nombre = values.nombre;
+        const ciudad = values.ciudad;
+        const celular = values.celular;
+        const profesion = values.profesion;
+        const habilidad = values.habilidad;
+        const descripcion = values.descripcion;
+        const valor = values.valor;
+
+        console.log(nombre, ciudad, celular, profesion, habilidad, descripcion, valor);
+        axios.put(`http://localhost:5000/api/actualizarProfesional/${id}`,
+            { nombre, ciudad, celular, profesion, habilidad, descripcion, valor })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        const { name } = e.target
+        setValues({
+            ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
+            [name]: "" //name es la etiqueta que se le da al input como name="email"
+        })
+        // setErrors(validate(values));
+    }
+
+    return { handleChange, values, handleSubmit, handleSubmit2, handleSubmit3, errors };
 
 }
 
