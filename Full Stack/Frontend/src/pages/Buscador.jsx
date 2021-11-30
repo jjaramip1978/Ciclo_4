@@ -17,86 +17,68 @@ class Buscador extends React.Component {
         this.state = {
             serviciosRegistrados: [
                 {
-                    Id: 0,
-                    Codigo: 'MO5001',
                     Nombre: 'Lorena Vasquez',
-                    Correo: 'lorena_vasquez@gmail.com',
+                    Email: 'lorena_vasquez@gmail.com',
                     Profesion: 'Administrador de empresas',
                     Habilidad: 'Desarrollador Web Senior',
                     Descripcion: 'Planes de diseño páginas web',
-                    Experiencia: '2 años',
-                    Pais: 'Colombia',
-                    Ciudad: 'Pasto',
+                    Numero_Celular:'3110987659',
+                    Ciudad_Residencia: 'Pasto',
                     Rango: '1000000-5000000',
                 },
 
                 {
-                    Id: 1,
-                    Codigo: 'MO5001',
                     Nombre: 'Carlos Marquez',
-                    Correo: 'carlos_marquez@gmail.com',
+                    Email: 'carlos_marquez@gmail.com',
                     Profesion: 'Ingeniero hidraulico',
                     Habilidad: 'Gerencia administracion de proyectos',
                     Descripcion: 'Obras hidraulicas viales',
-                    Experiencia: '3 años',
-                    Pais: 'Colombia',
-                    Ciudad: 'Bogota',
+                    Numero_Celular:'3110987657',
+                    Ciudad_Residencia: 'Bogota',
                     Rango: '1000000-5000000',
                 },
 
                 {
-                    Id: 2,
-                    Codigo: 'MO5001',
                     Nombre: 'Daniela Tarapues',
-                    Correo: 'Daniela_196@hotmail.com',
+                    Email: 'Daniela_196@hotmail.com',
                     Profesion: 'Ingenieria en gesiton administrativa',
                     Habilidad: 'Desarrollador web junior',
                     Descripcion: 'Backand: JAVA C#, PHYTON y SQL Frontand: React',
-                    Experiencia: '2 años',
-                    Pais: 'Colombia',
-                    Ciudad: 'Cartagena',
+                    Numero_Celular:'3110987653',
+                    Ciudad_Residencia: 'Cartagena',
                     Rango: '1000000-3000000',
                 },
 
                 {
-                    Id: 3,
-                    Codigo: 'MO5001',
                     Nombre: 'Robinson Merchancano',
-                    Correo: 'Robinson_HB@hotmail.com',
+                    Email: 'Robinson_HB@hotmail.com',
                     Profesion: 'Diseñador web',
                     Habilidad: 'Desarrollador web junior',
                     Descripcion: ' Backand: JAVA C#, PHYTON, SQL y NoSQL',
-                    Experiencia: '1 año',
-                    Pais: 'Colombia',
-                    Ciudad: 'Montería',
+                    Numero_Celular:'3110987652',
+                    Ciudad_Residencia: 'Montería',
                     Rango: '1000000-3000000',
                 },
 
                 {
-                    Id: 4,
-                    Codigo: 'MO5001',
                     Nombre: 'Mauricio Cota',
-                    Correo: 'Mauricio_123@gmail.com',
+                    Email: 'Mauricio_123@gmail.com',
                     Profesion: 'Ingeniero de Sistemas',
                     Habilidad: 'Desarrollador full stack',
                     Descripcion: 'Backend:(PHP, Python, Bash, otros) Frontend: (Angular, JavaScript, JQuery, React), Bases de datos (MySql, SQL, PL SQL, otros), Unix-Linux',
-                    Experiencia: '4 años',
-                    Pais: 'Colombia',
-                    Ciudad: 'Villavicencio',
+                    Numero_Celular:'3110987655',
+                    Ciudad_Residencia: 'Villavicencio',
                     Rango: '1000000-5000000',
                 },
 
                 {
-                    Id: 5,
-                    Codigo: 'MO5001',
                     Nombre: 'Yenny Valencia',
-                    Correo: 'Yenny@gmail.com',
+                    Email: 'Yenny@gmail.com',
                     Profesion: 'Ingeniero de Sistemas',
                     Habilidad: 'Desarrollador full stack',
                     Descripcion: 'Backend:(PHP, Python, Bash, otros) Frontend: (Angular, JavaScript, JQuery, React), Bases de datos (MySql, SQL, PL SQL, otros), Unix-Linux',
-                    Ciudad: 'Cucuta',
-                    Experiencia: '5 años',
-                    Pais: 'Colombia',
+                    Ciudad_Residencia: 'Cucuta',
+                    Numero_Celular:'3110987654',
                     Rango: '1000000-5000000',
                 },
 
@@ -159,17 +141,9 @@ class Buscador extends React.Component {
             temp.forEach(item => {
                 if (item.Habilidad.toLowerCase().indexOf(query) > -1) {
                     res.push(item);
-
-                    /* Se especifica por las propiedades que van a ser filtrados en la busqueda
-                    Ciudad, profesión, Nombre, Habilidad */
-
-                } if (item.Ciudad.toLowerCase().indexOf(query) > -1) {
-                    res.push(item);
-                } if (item.Profesion.toLowerCase().indexOf(query) > -1) {
-                    res.push(item);
-                } if (item.Nombre.toLowerCase().indexOf(query) > -1) {
-                    res.push(item);
-                }
+                                       /* Se especifica la propiedad que va a ser filtrada en la busqueda:
+                                         Habilidad */
+                } 
             });
 
             /*Cuando se cumpla el ciclo se actualizará el estado de 

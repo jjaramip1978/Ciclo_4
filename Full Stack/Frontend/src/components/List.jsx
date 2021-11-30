@@ -14,25 +14,21 @@ function List(props){
 																		solo me sirve para hacer un recorrido o le mapeo de cada uno de los elementos.
 																		Esta es funcion de mapeo donde se hace referencia al props.items */
 
-																		// 13 Propiedades de los objetos o elementos, servicios registrados
+																		// 9 Propiedades de los objetos o elementos, servicios registrados
 					<Item 
 						key={item.id}          /* En la iteración hay elementos, mas de uno que se van a mostar del mismo tipo de componente,
-																			se añade key especifica para identificar cada elemento, no se puede usar este mismo prpops 
-																			key={item.id} para jalarlo 
-																			desde Item.jsx así que se crea otro, llamado id especificamente.
+																			se añade key especifica para identificar cada elemento,
 																			key={item.id} sirve para mapear cada uno de los elementos individualmente y que tengan su 
 																			propio id*/
-					  Id={item.id} 
-       		  Codigo={item.Codigo} 
+					  
 						Nombre={item.Nombre}
-       			Correo={item.Correo} 
+       			Email={item.Correo} 
 						Profesion={item.Profesion}
        			Habilidad={item.Habilidad}
 						Departamneto={item.Departamento}
        			Descripcion={item.Descripcion}
-						Experiencia={item.Experiencia}
-						Pais={item.Pais}
-						Ciudad={item.Ciudad}
+						Numero_Celular={item.Numero_Celular}
+						Ciudad_Residencia={item.Ciudad_Residencia}
        			Rango={item.Rango}
 						/>  
 
