@@ -32,7 +32,6 @@ function Menu(props) {
 																																	la funcion onsearch */}
 						<i className="bi bi-search center #adb5bd"></i>
 					</div>
-
 				</div>
 			</div>
 
