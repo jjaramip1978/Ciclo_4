@@ -1,19 +1,90 @@
 import React from "react";
+import { useState } from 'react';
 import axios from "axios";
 import "./styles/registro.css";
-import useRegistro from "./useRegistro";
+// import useRegistro from "./useRegistro";
 import { useEffect } from "react";
+
+
 
 axios.defaults.withCredentials = true;
 
 export const IngenieroUpdate = () => {
-  const { handleChange, handleSubmit3, values } = useRegistro()
+
+  const [values, setValues] = useState({
+    id: '',
+    nombre: '',
+    email: '',
+    ciudad: '',
+    celular: '',
+    profesion: '',
+    habilidad: '',
+    descripcion: '',
+    password: '',
+    valor: '',
+    empresa: ''
+  })
+
+  const handleChange = e => {
+    //este es similar a lo que haciamos para capturar la info del usuario: 
+    /*
+    value={nombre}
+    onChange={(e) => {
+    setNombre(e.target.value);
+    }} */
+    const { name, value } = e.target
+    setValues({
+      ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
+      [name]: value //name es la etiqueta que se le da al input como name="email"
+    })
+  }
+
+  const handleDelete = e => {
+    e.preventDefault();
+    axios.delete(`http://localhost:5000/api/eliminarProfesional/${values.id}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
+  const handleSubmit3 = e => {
+    e.preventDefault();
+    const id = values.id;
+    const nombre = values.nombre;
+    const ciudad = values.ciudad;
+    const celular = values.celular;
+    const profesion = values.profesion;
+    const habilidad = values.habilidad;
+    const descripcion = values.descripcion;
+    const valor = values.valor;
+
+    console.log(nombre, ciudad, celular, profesion, habilidad, descripcion, valor);
+    axios.put(`http://localhost:5000/api/actualizarProfesional/${id}`,
+      { nombre, ciudad, celular, profesion, habilidad, descripcion, valor })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    const { name } = e.target
+    setValues({
+      ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
+      [name]: "" //name es la etiqueta que se le da al input como name="email"
+    })
+    // setErrors(validate(values));
+  }
 
   useEffect(() => {
-    const id = "61a574a8b4e553549f20ec30";
+    actualizar();
+  }, [])
+
+  const actualizar = () => {
+    const id = "61a5a2bf6834401621695724";
     axios.get(`http://localhost:5000/api/buscarProfesional/${id}`).then(res => {
       console.log(values);
-      // values.id = id;
+      values.id = id;
       values.email = res.data.email;
       values.nombre = res.data.nombre;
       values.ciudad = res.data.ciudad;
@@ -25,7 +96,8 @@ export const IngenieroUpdate = () => {
     }).catch(err => {
       console.log(err);
     });
-  });
+  }
+
 
   return (
 
@@ -36,6 +108,9 @@ export const IngenieroUpdate = () => {
         ">
             <h1 className="titulo">Actualizar Perfil</h1>
 
+            <button className='form-input-btn2' type="cancel" onClick={actualizar}>
+              Cargar
+            </button>
             <label className="form-labelFirst">Nombre</label>
             <input
               className="form-input"
@@ -159,6 +234,9 @@ export const IngenieroUpdate = () => {
           <button className='form-input-btn2' type='submit'>
             Actualizar
           </button>
+          <button type='delete' className='form-input-btn2' onClick={handleDelete}>
+            Borrar perfil
+          </button>
         </div>
       </form>
     </div>
@@ -166,4 +244,4 @@ export const IngenieroUpdate = () => {
   );
 };
 
-export default IngenieroUpdate;
+export default [IngenieroUpdate];
