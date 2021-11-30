@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/Home";
 import Registro from "./pages/Registro";
 import Buscador from "./pages/Buscador";
+import BuscadorProfesionCopy from "./components/buscadorProfesionCopy";
 import { Footer } from "./components/footer";
 import { Navigation } from "./components/navigation";
 import { Ingeniero } from "./components/ingeniero";
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/buscador">
             <Buscador />
+          </Route>
+          <Route path="/buscadorprofesioncopy">
+            <BuscadorProfesionCopy />
           </Route>
         </Switch>
         <Footer />

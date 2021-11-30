@@ -1,9 +1,9 @@
 import React from 'react';
-import Menu from '../components/Menu';
-import List from '../components/List';
+import MenuProfesion from './MenuProfesion';
+import ListProfesion from './ListProfesion';
 
 
-class Buscador extends React.Component {
+class BuscadorProfesionCopy extends React.Component {
 
     /* Se determina componente como clase para poder modificar el estado
         de la aplicacón y así modificar la información grafica de esta por medio 
@@ -13,7 +13,7 @@ class Buscador extends React.Component {
         super(props);
 
         /* estado o state crea un arrego de objetos llamado serviciosRegistrados 
-            con las propiedades de cada servicio registrado*/
+            con las propiedades de cada registro*/
         this.state = {
             serviciosRegistrados: [
                 {
@@ -82,7 +82,7 @@ class Buscador extends React.Component {
                     Rango: '1000000-5000000',
                 },
 
-            ], /* Ahora necesitamos pasar esta información al componente List.jsx el cual va a utilizar
+            ], /* Ahora necesitamos pasar esta información al componente ListProfesion.jsx el cual va a utilizar
             cada una de las propiedades de cada uno de los servicios registrados, especificados en 
             el arreglo serviciosRegistrados como items para poder renderizar los elementos*/
 
@@ -99,7 +99,7 @@ class Buscador extends React.Component {
     }
 
     /* copyserviciosRegistrados requiere 
-    hacerse popular, para eso se llamarfuncion componentDidMount,
+    hacerse popular, para eso se llama la funcion componentDidMount,
     dentro de la cual se llama otra función llamada this.initserviciosRegistrado 
     para poder rellenar los servicios registrados tanto la copia como una vez se tengan los
     servicios registrados completos, siempre haya una copia igual a la de los servicios registrados originales*/
@@ -139,10 +139,10 @@ class Buscador extends React.Component {
             cuando aplico un indexOf() el cual me ba a buscar la coincidencia si es -1 
             entonces ese resultado se añade al arreglo de res */
             temp.forEach(item => {
-                if (item.Habilidad.toLowerCase().indexOf(query) > -1) {
+                if (item.Profesion.toLowerCase().indexOf(query) > -1) {
                     res.push(item);
                                        /* Se especifica la propiedad que va a ser filtrada en la busqueda:
-                                         Habilidad */
+                                         Profesion */
                 } 
             });
 
@@ -165,24 +165,25 @@ class Buscador extends React.Component {
                             {/*se crea evento onsearch que tiene definido el algoritmo para poder filtrar
                             las busquedas por ciertas propiedades, manda a llamar
                             a this.onSearch */}
-                            <Menu title="Buscador de Servicios Registrados"
+                            <MenuProfesion title="Buscador de Ingenieros Registrados"
                                 onsearch={this.onSearch}
                             />
                         </h3>
                     </div>
                 </div>
                 <div>
-                    {/* Se establece un nuevo props, llamado items para enviarle el arreglo al componente List.jsx, se crea con
-                    this porque el componente App.jsx ha sido declarado como un componente clase para dar a entender
+                    {/* Se establece un nuevo props, llamado items para enviarle el arreglo al componente ListProfesion.jsx, se crea con
+                    this porque el componente BuscadorProfesion.jsx ha sido declarado como un componente clase para dar a entender
                     que esta bajo el mismo contexto de toda la clase, y de esta manera se determina el estado
                     state haciendo referencia a la copia de los servicios registrados que es lo que finalmente va a ser
-                    modificado  identica al
+                    modificado e identica al
                     arreglo original para enviar este arreglo de datos como si fuera una propiedad */}
 
-                    <List items={this.state.copyserviciosRegistrados} />
+                    <ListProfesion items={this.state.copyserviciosRegistrados} />
                 </div>
             </div>
         );
     }
-}
-export default Buscador;
+	}
+
+export default BuscadorProfesionCopy;
