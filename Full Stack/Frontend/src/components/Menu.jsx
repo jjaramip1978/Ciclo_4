@@ -33,12 +33,6 @@ function Menu(props) {
 						<i className="bi bi-search center #adb5bd"></i>
 					</div>
 
-					<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-					 	<button className="button btn-Light btn-lg">
-							 <i className="bi bi-person-plus-fill"></i>
-						</button> 
-							<p class="fs-5">Añadir Servicio</p>
-				 	</div>
 				</div>
 			</div>
 
