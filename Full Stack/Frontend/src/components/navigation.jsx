@@ -18,8 +18,8 @@ export const Navigation = (props) => {
               Buscador
             </NavLink>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link class="dropdown-item" to="/buscador">Buscador de Ingenieros</Link>
-              <Link class="dropdown-item" to="#">Buscador de Servicios</Link>
+              <Link class="dropdown-item" to="/Buscador">Buscador de Servicios</Link>
+              <Link class="dropdown-item" to="/BuscadorProfesionCopy">Buscador de Ingenieros</Link>
             </div>
           </li>
           <li class="nav-item">

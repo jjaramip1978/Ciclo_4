@@ -28,9 +28,7 @@ class Search extends React.Component { //Componente declarado como una clase que
 
 			<div class="form-group">
 				{/* <input type="text" onChange={this.onChangeEvent} /> */}
-				<label for="exampleInputEmail1">Buscar Habilidad</label>
-				<textarea class="form-control" placeholder="Buscar" rows="1"  onChange={this.onChangeEvent}></textarea>
-				<label for="exampleInputEmail1">Buscar Profesion</label>
+				<label for="exampleInputEmail1">Buscar Servicio</label>
 				<textarea class="form-control" placeholder="Buscar" rows="1"  onChange={this.onChangeEvent}></textarea>
 			</div>
 		);
