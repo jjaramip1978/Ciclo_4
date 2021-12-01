@@ -8,7 +8,7 @@ router.post('/nuevoProfesional', profesionalController.nuevoProfesional);
 //recuperar solo un documento
 router.get('/buscarProfesional/:id', profesionalController.buscarProfesional);
 //recuperar solo un documento por email
-router.get('/buscarProfesional/:email', profesionalController.buscarProfesionalEmail);
+router.get('/buscarProfesionalEmail/:email', profesionalController.buscarProfesionalEmail);
 // recuperar todos los documentos
 router.get('/listarProfesionales', profesionalController.listarProfesionales);
 // Borrar un documento

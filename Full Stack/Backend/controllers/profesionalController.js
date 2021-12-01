@@ -34,7 +34,7 @@ module.exports.buscarProfesional = async (req, res, next) => {
 module.exports.buscarProfesionalEmail = async (req, res, next) => {
     const { email } = req.params;
     try {
-        const profesional = await Profesion.findOne({ email });
+        const profesional = await Profesion.findOne({ email: email });
         res.status(200).json(profesional);
     } catch (error) {
         res.status(500).json({
