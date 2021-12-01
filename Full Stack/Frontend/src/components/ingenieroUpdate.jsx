@@ -10,7 +10,7 @@ axios.defaults.withCredentials = true;
 export const IngenieroUpdate = () => {
 
   const [values, setValues] = useState({
-    id: '61a6b3ac1608063267be3eaa',
+    id: '',
     nombre: '',
     email: '',
     ciudad: '',
@@ -24,18 +24,21 @@ export const IngenieroUpdate = () => {
   })
 
   const handleChange = e => {
-    localStorage.setItem('usuariojwt', JSON.stringify(values));
-    localStorage.getItem('usuariojwt');
+    // localStorage.setItem('usuariojwt', JSON.stringify(values));
+    const id = localStorage.getItem('usuariojwt');
     const { name, value } = e.target
+    console.log("Valor del ID", id);
     setValues({
       ...values,
       [name]: value
     })
+    // console.log("Valor despues: ", values.id);
   }
 
   const handleDelete = e => {
     e.preventDefault();
-    axios.delete(`http://localhost:5000/api/eliminarProfesional/${values.id}`)
+    const id = localStorage.getItem('usuariojwt');
+    axios.delete(`http://localhost:5000/api/eliminarProfesional/${id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -44,7 +47,7 @@ export const IngenieroUpdate = () => {
 
   const handleSubmit3 = e => {
     e.preventDefault();
-    const id = values.id;
+    const id = localStorage.getItem('usuariojwt');
     const nombre = values.nombre;
     const ciudad = values.ciudad;
     const celular = values.celular;
@@ -53,7 +56,7 @@ export const IngenieroUpdate = () => {
     const descripcion = values.descripcion;
     const valor = values.valor;
 
-    console.log(nombre, ciudad, celular, profesion, habilidad, descripcion, valor);
+    // console.log(values.id);
     axios.put(`http://localhost:5000/api/actualizarProfesional/${id}`,
       { nombre, ciudad, celular, profesion, habilidad, descripcion, valor })
       .then(res => {
@@ -64,19 +67,22 @@ export const IngenieroUpdate = () => {
       });
     const { name } = e.target
     setValues({
-      ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
-      [name]: "" //name es la etiqueta que se le da al input como name="email"
+      ...values,
+      [name]: ""
     })
-    // setErrors(validate(values));
   }
 
-  useEffect(() => {
-    actualizar();
-  }, [])
+  // const actualizar = () => {
+    
+  // }
 
-  const actualizar = () => {
-    // const id = "61a6b3ac1608063267be3eaa";
-    axios.get(`http://localhost:5000/api/buscarProfesional/${values.id}`).then(res => {
+  useEffect(() => {
+    localStorage.setItem('usuariojwt', "61a6b3ac1608063267be3eaa");
+    const id = localStorage.getItem('usuariojwt');
+    // setValues({ id: localStorage.getItem('usuariojwt') });
+    // console.log("Valor id: ", values.id);
+
+    axios.get(`http://localhost:5000/api/buscarProfesional/${id}`).then(res => {
       console.log(res);
       setValues({
         id: res.data.id,
@@ -92,8 +98,7 @@ export const IngenieroUpdate = () => {
     }).catch(err => {
       console.log(err);
     });
-  }
-
+  }, [])
 
   return (
 
@@ -103,7 +108,7 @@ export const IngenieroUpdate = () => {
           <div className="form-inputs2
         ">
             <h1 className="titulo">Actualizar Perfil</h1>
-            <label className="form-labelFirst">Nombre</label>
+            <label className="form-labelFirst">{values.id}</label>
             <input
               className="form-input"
               type="text"
