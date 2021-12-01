@@ -6,6 +6,8 @@ axios.defaults.withCredentials = true;
 export const Navigation = (props) => {
   const handleLogout = () => {
     axios.post('http://localhost:5000/auth/logout')
+    localStorage.removeItem('id');
+    localStorage.removeItem('userId');
   }
 
   return (

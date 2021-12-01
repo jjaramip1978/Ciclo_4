@@ -58,7 +58,8 @@ const useForm = (validate) => {
                     .then(res2 => {
                         console.log(res2);
                         localStorage.setItem('id', res2.data._id);
-                        console.log(localStorage.getItem('id'));
+                        localStorage.setItem('email', email);
+                        console.log(localStorage.getItem('email'));
                     })
                     .catch(err2 => {
                         console.log(err2);

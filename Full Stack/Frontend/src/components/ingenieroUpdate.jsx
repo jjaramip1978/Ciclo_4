@@ -37,11 +37,22 @@ export const IngenieroUpdate = () => {
 
   const handleDelete = e => {
     e.preventDefault();
+    const email = localStorage.getItem('email');
+    console.log("Email: ", email);
     const id = localStorage.getItem('id');
     axios.delete(`http://localhost:5000/api/eliminarProfesional/${id}`)
       .then(res => {
         console.log(res);
-        console.log(res.data);
+        console.log(email);
+        axios.delete(`http://localhost:5000/auth/deleteUser/${email}`).then(res => {
+          console.log(res);
+        })
+          .catch(err => {
+            console.log(err);
+          })
+      })
+      .catch(err => {
+        console.log(err);
       })
   }
 
@@ -73,7 +84,7 @@ export const IngenieroUpdate = () => {
   }
 
   // const actualizar = () => {
-    
+
   // }
 
   useEffect(() => {
@@ -218,7 +229,7 @@ export const IngenieroUpdate = () => {
           <button className='form-input-btn2' type='submit'>
             Actualizar
           </button>
-          <button type='delete' className='form-input-btn2' onClick={handleDelete}>
+          <button type='delete' className='form-input-btn2' value={values.email} onClick={handleDelete}>
             Borrar perfil
           </button>
         </div>
