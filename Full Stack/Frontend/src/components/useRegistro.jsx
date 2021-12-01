@@ -17,7 +17,7 @@ const useForm = (validate) => {
         valor: '',
         empresa: ''
     })
-    const [errors ] = useState({})
+    const [errors] = useState({})
 
     const handleChange = e => {
         //este es similar a lo que haciamos para capturar la info del usuario: 
@@ -50,17 +50,24 @@ const useForm = (validate) => {
             .then(res => {
                 console.log(res);
                 console.log("Usuario registrado");
+                localStorage.setItem('userId', res.data.id);
+                const idUser = localStorage.getItem('userId');
+                console.log(idUser);
+                axios.post("http://localhost:5000/api/nuevoProfesional", 
+                { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
+                    .then(res2 => {
+                        console.log(res2);
+                        localStorage.setItem('id', res2.data._id);
+                        console.log(localStorage.getItem('id'));
+                    })
+                    .catch(err2 => {
+                        console.log(err2);
+                    });
             })
             .catch(err => {
                 console.log(err);
             });
-        axios.post("http://localhost:5000/api/nuevoProfesional", { nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+
         const { name } = e.target
         setValues({
             ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc

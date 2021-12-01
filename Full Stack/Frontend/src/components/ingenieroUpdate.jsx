@@ -24,8 +24,8 @@ export const IngenieroUpdate = () => {
   })
 
   const handleChange = e => {
-    // localStorage.setItem('usuariojwt', JSON.stringify(values));
-    const id = localStorage.getItem('usuariojwt');
+    // localStorage.setItem('id', JSON.stringify(values));
+    const id = localStorage.getItem('id');
     const { name, value } = e.target
     console.log("Valor del ID", id);
     setValues({
@@ -37,7 +37,7 @@ export const IngenieroUpdate = () => {
 
   const handleDelete = e => {
     e.preventDefault();
-    const id = localStorage.getItem('usuariojwt');
+    const id = localStorage.getItem('id');
     axios.delete(`http://localhost:5000/api/eliminarProfesional/${id}`)
       .then(res => {
         console.log(res);
@@ -47,7 +47,7 @@ export const IngenieroUpdate = () => {
 
   const handleSubmit3 = e => {
     e.preventDefault();
-    const id = localStorage.getItem('usuariojwt');
+    const id = localStorage.getItem('id');
     const nombre = values.nombre;
     const ciudad = values.ciudad;
     const celular = values.celular;
@@ -77,9 +77,9 @@ export const IngenieroUpdate = () => {
   // }
 
   useEffect(() => {
-    localStorage.setItem('usuariojwt', "61a6b3ac1608063267be3eaa");
-    const id = localStorage.getItem('usuariojwt');
-    // setValues({ id: localStorage.getItem('usuariojwt') });
+    // localStorage.setItem('id', "61a6b3ac1608063267be3eaa");
+    const id = localStorage.getItem('id');
+    // setValues({ id: localStorage.getItem('id') });
     // console.log("Valor id: ", values.id);
 
     axios.get(`http://localhost:5000/api/buscarProfesional/${id}`).then(res => {
@@ -108,7 +108,7 @@ export const IngenieroUpdate = () => {
           <div className="form-inputs2
         ">
             <h1 className="titulo">Actualizar Perfil</h1>
-            <label className="form-labelFirst">{values.id}</label>
+            <label className="form-labelFirst">Nombre</label>
             <input
               className="form-input"
               type="text"
