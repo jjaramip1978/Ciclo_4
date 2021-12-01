@@ -5,8 +5,6 @@ import "./styles/registro.css";
 // import useRegistro from "./useRegistro";
 import { useEffect } from "react";
 
-
-
 axios.defaults.withCredentials = true;
 
 export const IngenieroUpdate = () => {
@@ -26,22 +24,21 @@ export const IngenieroUpdate = () => {
   })
 
   const handleChange = e => {
-    //este es similar a lo que haciamos para capturar la info del usuario: 
-    /*
-    value={nombre}
-    onChange={(e) => {
-    setNombre(e.target.value);
-    }} */
+    // localStorage.setItem('usuariojwt', JSON.stringify(values));
+    const id = localStorage.getItem('usuariojwt');
     const { name, value } = e.target
+    console.log("Valor del ID", id);
     setValues({
-      ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
-      [name]: value //name es la etiqueta que se le da al input como name="email"
+      ...values,
+      [name]: value
     })
+    // console.log("Valor despues: ", values.id);
   }
 
   const handleDelete = e => {
     e.preventDefault();
-    axios.delete(`http://localhost:5000/api/eliminarProfesional/${values.id}`)
+    const id = localStorage.getItem('usuariojwt');
+    axios.delete(`http://localhost:5000/api/eliminarProfesional/${id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -50,7 +47,7 @@ export const IngenieroUpdate = () => {
 
   const handleSubmit3 = e => {
     e.preventDefault();
-    const id = values.id;
+    const id = localStorage.getItem('usuariojwt');
     const nombre = values.nombre;
     const ciudad = values.ciudad;
     const celular = values.celular;
@@ -59,7 +56,7 @@ export const IngenieroUpdate = () => {
     const descripcion = values.descripcion;
     const valor = values.valor;
 
-    console.log(nombre, ciudad, celular, profesion, habilidad, descripcion, valor);
+    // console.log(values.id);
     axios.put(`http://localhost:5000/api/actualizarProfesional/${id}`,
       { nombre, ciudad, celular, profesion, habilidad, descripcion, valor })
       .then(res => {
@@ -70,34 +67,38 @@ export const IngenieroUpdate = () => {
       });
     const { name } = e.target
     setValues({
-      ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
-      [name]: "" //name es la etiqueta que se le da al input como name="email"
+      ...values,
+      [name]: ""
     })
-    // setErrors(validate(values));
   }
 
-  useEffect(() => {
-    actualizar();
-  }, [])
+  // const actualizar = () => {
+    
+  // }
 
-  const actualizar = () => {
-    const id = "61a5a2bf6834401621695724";
+  useEffect(() => {
+    localStorage.setItem('usuariojwt', "61a6b3ac1608063267be3eaa");
+    const id = localStorage.getItem('usuariojwt');
+    // setValues({ id: localStorage.getItem('usuariojwt') });
+    // console.log("Valor id: ", values.id);
+
     axios.get(`http://localhost:5000/api/buscarProfesional/${id}`).then(res => {
-      console.log(values);
-      values.id = id;
-      values.email = res.data.email;
-      values.nombre = res.data.nombre;
-      values.ciudad = res.data.ciudad;
-      values.celular = res.data.celular;
-      values.profesion = res.data.profesion;
-      values.habilidad = res.data.habilidad;
-      values.descripcion = res.data.descripcion;
-      values.valor = res.data.valor;
+      console.log(res);
+      setValues({
+        id: res.data.id,
+        emai: res.data.email,
+        nombre: res.data.nombre,
+        ciudad: res.data.ciudad,
+        celular: res.data.celular,
+        profesion: res.data.profesion,
+        habilidad: res.data.habilidad,
+        descripcion: res.data.descripcion,
+        valor: res.data.valor
+      })
     }).catch(err => {
       console.log(err);
     });
-  }
-
+  }, [])
 
   return (
 
@@ -107,11 +108,7 @@ export const IngenieroUpdate = () => {
           <div className="form-inputs2
         ">
             <h1 className="titulo">Actualizar Perfil</h1>
-
-            <button className='form-input-btn2' type="cancel" onClick={actualizar}>
-              Cargar
-            </button>
-            <label className="form-labelFirst">Nombre</label>
+            <label className="form-labelFirst">{values.id}</label>
             <input
               className="form-input"
               type="text"
@@ -149,19 +146,6 @@ export const IngenieroUpdate = () => {
             />
             {/* {errors.celular && <p>{errors.celular}</p>} */}
           </div>
-          {/* <div className="form-inputs2">
-            <label className="form-label">Confirma contraseña</label>
-            <input
-              className="form-input"
-              type="password"
-              name="password2"
-              placeholder="Confirma tu contraseña"
-              //Para guardar la información digitada por el usuario
-              value={values.password2}
-              onChange={handleChange}
-            />
-            {errors.password2 && <p>{errors.password2}</p>}
-          </div> */}
           <div className="form-inputs2">
             <label className="form-label">Profesión</label>
             <select
