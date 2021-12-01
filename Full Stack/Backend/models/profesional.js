@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const profesionalSchema = new Schema({
 
+    idUser: {type:String, required:[true, 'El idUser es necesario']},
     nombre:{type:String, required:[true, 'Nombre Requerido']},
     email:{type:String, required:[true, 'Email Obligatorio']},
     ciudad:{type:String, required:[true, 'Ciudad Obligatoria']},

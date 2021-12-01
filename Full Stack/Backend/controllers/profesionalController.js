@@ -31,6 +31,19 @@ module.exports.buscarProfesional = async (req, res, next) => {
     }
 }
 
+module.exports.buscarProfesionalEmail = async (req, res, next) => {
+    const { email } = req.params;
+    try {
+        const profesional = await Profesion.findOne({ email });
+        res.status(200).json(profesional);
+    } catch (error) {
+        res.status(500).json({
+            mensaje: "Ocurrio un error !!!",
+            error
+        })
+    }
+}
+
 module.exports.actualizarProfesional = async (req, res, next) => {
     const { id } = req.params;
     const body = req.body;
