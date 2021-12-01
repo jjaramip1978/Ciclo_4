@@ -20,6 +20,7 @@ export const InicioSesion = () => {
           localStorage.setItem('id', res.data._id);
           localStorage.setItem('email', email);
           console.log(localStorage.getItem('id'));
+          window.location.replace('');
         })
       })
       .catch(err => {

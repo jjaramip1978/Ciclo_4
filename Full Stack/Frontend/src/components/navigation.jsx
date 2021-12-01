@@ -1,13 +1,32 @@
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 axios.defaults.withCredentials = true;
 
 export const Navigation = (props) => {
+
+  const [email, setEmail] = useState({ email: localStorage.getItem('email') || 'Usuario' });
+
+  const usuario = () => {
+    if (localStorage.getItem('email')) {
+      setEmail({ email: localStorage.getItem('email') });
+    }
+  }
+
+  useEffect(() => {
+    usuario();
+  }, [localStorage.getItem('email')]);
+
+
+
   const handleLogout = () => {
     axios.post('http://localhost:5000/auth/logout')
     localStorage.removeItem('id');
     localStorage.removeItem('userId');
+    localStorage.removeItem('email');
+    usuario();
+    window.location.replace('');
   }
 
   return (
@@ -42,7 +61,7 @@ export const Navigation = (props) => {
           </li>
           <li class="nav-item dropdown">
             <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Usuario
+              {email.email}
             </Link>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link class="dropdown-item" to="/ingenieroUpdate">Editar Perfil</Link>
