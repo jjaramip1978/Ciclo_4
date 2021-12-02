@@ -9,19 +9,34 @@ axios.defaults.withCredentials = true;
 export const InicioSesion = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [successful, setSuccessfull] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(email);
+    console.log(password);
+        setSuccessfull("");
+        setErrorEmail("");
+        setErrorPassword("");
+
     //para borrar el contenido del formulario automaticamente y dejar los campos en blanco
     axios.post("http://localhost:5000/auth/login", { email, password })
       .then(res => {
         console.log(res);
+        setSuccessfull(res.data.id);
+        setEmail("");
+        setPassword("");
       })
       .catch(err => {
-        console.log(err);
-      });
-    setEmail("");
-    setPassword("");
+        //console.log(err.res.data);
+        //const {email, password} = err.res.data;
+        setErrorEmail(email);
+        setErrorPassword(password);
+      })
+    
   }
 
   return (
@@ -30,10 +45,13 @@ export const InicioSesion = () => {
       <form onSubmit={handleSubmit} noValidate>
         <div className='contenedor2'>
           <div className="form-inputs2">
-            <div class="col-sm-12 d-flex justify-content-center">
-              <p class="text-uppercase"><strong>Iniciar Sesión</strong></p>
+            <div className="col-sm-12 d-flex justify-content-center">
+              <p className="text-uppercase"><strong>Iniciar Sesión</strong></p>
             </div>
             <label className="form-labelFirst">Email</label>
+            <p className="text-danger">
+              <small>{errorEmail}</small>
+            </p>
             <input
               className="form-input"
               type="email"
@@ -49,6 +67,9 @@ export const InicioSesion = () => {
           </div>
           <div className="form-inputs2">
             <label className="form-label">Contraseña</label>
+            <p className="text-danger">
+              <small>{errorPassword}</small>
+            </p>
             <input
               className="form-input"
               type="password"
@@ -62,6 +83,18 @@ export const InicioSesion = () => {
             />
             {/* {errors.password && <p>{errors.password}</p>} */}
           </div>
+          { errorPassword || errorEmail ? (
+            <div className="checkbox mb-3 text-danger fw-bold">
+              <small>Error al registrar</small>
+            </div>
+          ) :null}
+
+          {successful ? (
+            <div className="checkbox mb-3 text-success fw-bold">
+              <small>Sesion iniciada Id Usuario: {successful}</small>
+            </div>
+          ): null}
+          
         </div>
 
         <button className='form-input-btn2' type='submit'>

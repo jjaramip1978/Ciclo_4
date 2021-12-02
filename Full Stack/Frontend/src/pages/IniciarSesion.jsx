@@ -1,4 +1,5 @@
-import { InicioSesion } from "../components/inicioSesion";
+import { InicioSesion } from "/components/inicioSesion";
+
 
 const Sesion = () => {
     return (
