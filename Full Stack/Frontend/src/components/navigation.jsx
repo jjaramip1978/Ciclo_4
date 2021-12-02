@@ -42,9 +42,9 @@ export const Navigation = (props) => {
             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Buscador
             </Link>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/Buscador">Buscador de Servicios</Link>
-              <Link className="dropdown-item" to="/BuscadorProfesionCopy">Buscador de Ingenieros</Link>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link class="dropdown-item" to="/buscadorIngenieros">Buscador Ingenieros</Link>
+              <Link class="dropdown-item" to="/buscadorServicios">Buscador Servicios</Link>
             </div>
           </li>
           <li className="nav-item">
@@ -54,10 +54,6 @@ export const Navigation = (props) => {
             <Link className="nav-link dropdown-toggle" to="/registro" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Registrate
             </Link>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/ingeniero">Ingenieros</Link>
-              <Link className="dropdown-item" to="/empleador">Empresa</Link>
-            </div>
           </li>
             </div>
           </li>
