@@ -8,7 +8,7 @@ function MenuProfesion(props) {
 	return (
 
 		<reactFragment>
-			<div ClassName="container-fluid">
+			<div className="container-fluid">
 				<div className="subcontainer">
 
 					{/* Se llama un props determinado en la capa BuscadorProfesion.jsx,jsx para el componente MenuProfesion.jsx que
