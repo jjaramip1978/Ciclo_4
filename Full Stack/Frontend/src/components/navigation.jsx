@@ -1,9 +1,34 @@
 import { Link } from 'react-router-dom';
-// import "bootstrap/dist/css/bootstrap.css";
-// import "bootstrap/dist/js/bootstrap.bundle.js";
-// import "bootstrap-icons/font/bootstrap-icons.css";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+axios.defaults.withCredentials = true;
 
 export const Navigation = (props) => {
+
+  const [email, setEmail] = useState({ email: localStorage.getItem('email') || 'Usuario' });
+
+  const usuario = () => {
+    if (localStorage.getItem('email')) {
+      setEmail({ email: localStorage.getItem('email') });
+    }
+  }
+
+  useEffect(() => {
+    usuario();
+  }, [localStorage.getItem('email')]);
+
+
+
+  const handleLogout = () => {
+    axios.post('http://localhost:5000/auth/logout')
+    localStorage.removeItem('id');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('email');
+    usuario();
+    window.location.replace('');
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
       <Link className="navbar-brand" to="/">INGENIO</Link>
@@ -34,14 +59,6 @@ export const Navigation = (props) => {
               <Link className="dropdown-item" to="/empleador">Empresa</Link>
             </div>
           </li>
-          <li className="nav-item dropdown">
-            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Usuario
-            </Link>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="#">Editar Perfil</Link>
-              <div className="dropdown-divider"></div>
-              <Link className="dropdown-item" to="#">Cerrar Sesion</Link>
             </div>
           </li>
         </ul>

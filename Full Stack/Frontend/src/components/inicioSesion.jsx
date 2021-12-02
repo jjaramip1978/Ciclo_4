@@ -26,9 +26,6 @@ export const InicioSesion = () => {
     axios.post("http://localhost:5000/auth/login", { email, password })
       .then(res => {
         console.log(res);
-        setSuccessfull(res.data.id);
-        setEmail("");
-        setPassword("");
       })
       .catch(err => {
         //console.log(err.res.data);
@@ -45,7 +42,6 @@ export const InicioSesion = () => {
       <form onSubmit={handleSubmit} noValidate>
         <div className='contenedor2'>
           <div className="form-inputs2">
-            <div className="col-sm-12 d-flex justify-content-center">
               <p className="text-uppercase"><strong>Iniciar Sesión</strong></p>
             </div>
             <label className="form-labelFirst">Email</label>

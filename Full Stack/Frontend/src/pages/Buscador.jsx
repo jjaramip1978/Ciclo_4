@@ -1,7 +1,9 @@
 import React from 'react';
 import Menu from '../components/Menu';
 import List from '../components/List';
+import axios from 'axios';
 
+axios.defaults.withCredentials = true;
 
 class Buscador extends React.Component {
 
@@ -14,6 +16,17 @@ class Buscador extends React.Component {
 
         /* estado o state crea un arrego de objetos llamado serviciosRegistrados 
             con las propiedades de cada servicio registrado*/
+        // axios
+        //     .get("http://localhost:5000/api/listarIngenieros")
+        //     .then((res) => {
+        //         this.state = {
+        //             serviciosRegistrados: res.data,
+        //         }
+        //         console.log(this.state.serviciosRegistrados);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
         this.state = {
             serviciosRegistrados: [
                 {
@@ -22,7 +35,7 @@ class Buscador extends React.Component {
                     Profesion: 'Administrador de empresas',
                     Habilidad: 'Desarrollador Web Senior',
                     Descripcion: 'Planes de diseño páginas web',
-                    Numero_Celular:'3110987659',
+                    Numero_Celular: '3110987659',
                     Ciudad_Residencia: 'Pasto',
                     Rango: '1000000-5000000',
                 },
@@ -33,7 +46,7 @@ class Buscador extends React.Component {
                     Profesion: 'Ingeniero hidraulico',
                     Habilidad: 'Gerencia administracion de proyectos',
                     Descripcion: 'Obras hidraulicas viales',
-                    Numero_Celular:'3110987657',
+                    Numero_Celular: '3110987657',
                     Ciudad_Residencia: 'Bogota',
                     Rango: '1000000-5000000',
                 },
@@ -44,7 +57,7 @@ class Buscador extends React.Component {
                     Profesion: 'Ingenieria en gesiton administrativa',
                     Habilidad: 'Desarrollador web junior',
                     Descripcion: 'Backand: JAVA C#, PHYTON y SQL Frontand: React',
-                    Numero_Celular:'3110987653',
+                    Numero_Celular: '3110987653',
                     Ciudad_Residencia: 'Cartagena',
                     Rango: '1000000-3000000',
                 },
@@ -55,7 +68,7 @@ class Buscador extends React.Component {
                     Profesion: 'Diseñador web',
                     Habilidad: 'Desarrollador web junior',
                     Descripcion: ' Backand: JAVA C#, PHYTON, SQL y NoSQL',
-                    Numero_Celular:'3110987652',
+                    Numero_Celular: '3110987652',
                     Ciudad_Residencia: 'Montería',
                     Rango: '1000000-3000000',
                 },
@@ -66,7 +79,7 @@ class Buscador extends React.Component {
                     Profesion: 'Ingeniero de Sistemas',
                     Habilidad: 'Desarrollador full stack',
                     Descripcion: 'Backend:(PHP, Python, Bash, otros) Frontend: (Angular, JavaScript, JQuery, React), Bases de datos (MySql, SQL, PL SQL, otros), Unix-Linux',
-                    Numero_Celular:'3110987655',
+                    Numero_Celular: '3110987655',
                     Ciudad_Residencia: 'Villavicencio',
                     Rango: '1000000-5000000',
                 },
@@ -78,7 +91,7 @@ class Buscador extends React.Component {
                     Habilidad: 'Desarrollador full stack',
                     Descripcion: 'Backend:(PHP, Python, Bash, otros) Frontend: (Angular, JavaScript, JQuery, React), Bases de datos (MySql, SQL, PL SQL, otros), Unix-Linux',
                     Ciudad_Residencia: 'Cucuta',
-                    Numero_Celular:'3110987654',
+                    Numero_Celular: '3110987654',
                     Rango: '1000000-5000000',
                 },
 
@@ -141,9 +154,9 @@ class Buscador extends React.Component {
             temp.forEach(item => {
                 if (item.Habilidad.toLowerCase().indexOf(query) > -1) {
                     res.push(item);
-                                       /* Se especifica la propiedad que va a ser filtrada en la busqueda:
-                                         Habilidad */
-                } 
+                    /* Se especifica la propiedad que va a ser filtrada en la busqueda:
+                      Habilidad */
+                }
             });
 
             /*Cuando se cumpla el ciclo se actualizará el estado de 
