@@ -5,6 +5,7 @@ axios.defaults.withCredentials = true;
 
 const useForm = (validate) => {
     const [values, setValues] = useState({
+        id: '61a574a8b4e553549f20ec30',
         nombre: '',
         email: '',
         ciudad: '',
@@ -16,8 +17,7 @@ const useForm = (validate) => {
         valor: '',
         empresa: ''
     })
-    const [errors, setErrors] = useState({})
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [errors] = useState({})
 
     const handleChange = e => {
         //este es similar a lo que haciamos para capturar la info del usuario: 
@@ -49,17 +49,26 @@ const useForm = (validate) => {
         axios.post("http://localhost:5000/auth/signUp", { email, password })
             .then(res => {
                 console.log(res);
+                console.log("Usuario registrado");
+                localStorage.setItem('userId', res.data.id);
+                const idUser = localStorage.getItem('userId');
+                console.log(idUser);
+                axios.post("http://localhost:5000/api/nuevoProfesional", 
+                { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
+                    .then(res2 => {
+                        console.log(res2);
+                        localStorage.setItem('id', res2.data._id);
+                        localStorage.setItem('email', email);
+                        console.log(localStorage.getItem('email'));
+                    })
+                    .catch(err2 => {
+                        console.log(err2);
+                    });
             })
             .catch(err => {
                 console.log(err);
             });
-        axios.post("http://localhost:5000/api/nuevoProfesional", { nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+
         const { name } = e.target
         setValues({
             ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
@@ -78,14 +87,7 @@ const useForm = (validate) => {
         const empresa = values.empresa;
 
         console.log(email, password, nombre, ciudad, celular, empresa);
-        axios.post("http://localhost:5000/auth/signUp", { email, password })
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        axios.post("http://localhost:5000/api/nuevoCliente", { nombre, email, ciudad, celular, empresa})
+        axios.post("http://localhost:5000/api/nuevoCliente", { nombre, email, ciudad, celular, empresa })
             .then(res => {
                 console.log(res);
             })
@@ -100,7 +102,7 @@ const useForm = (validate) => {
         // setErrors(validate(values));
     }
 
-    return { handleChange, values, handleSubmit,handleSubmit2, errors };
+    return { handleChange, values, handleSubmit, handleSubmit2, errors };
 
 }
 

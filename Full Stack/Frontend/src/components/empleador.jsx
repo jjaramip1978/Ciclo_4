@@ -25,7 +25,7 @@ export const Empleador = () => {
             {/*    {errors.email && <p>{errors.email}</p>} */}
           </div>
 
-          <div className="form-inputs2">
+          {/* <div className="form-inputs2">
             <label className="form-label">Contraseña</label>
             <input
               className="form-input"
@@ -36,8 +36,8 @@ export const Empleador = () => {
               value={values.password}
               onChange={handleChange}
             />
-            {/* {errors.password && <p>{errors.password}</p>} */}
-          </div>
+            {errors.password && <p>{errors.password}</p>}
+          </div> */}
 
           <div className="form-inputs2">
             <label className="form-labelFirst">Nombre</label>

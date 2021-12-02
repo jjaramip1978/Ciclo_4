@@ -86,3 +86,15 @@ module.exports.Logout = function(req, res) {
     res.cookie('jwt', '', { maxAge: 1 });
     res.send('Logged out');
 }
+
+module.exports.deleteUser = async (req, res, next) => {
+    try {
+        console.log(req.params.email);
+        await User.deleteOne({ email: req.params.email});
+        res.json({ msg: 'User deleted' });
+    } catch (err) {
+        console.log(req.params.email);
+        console.error(err.message);
+        res.status(500).send(err.message);
+    }
+}
