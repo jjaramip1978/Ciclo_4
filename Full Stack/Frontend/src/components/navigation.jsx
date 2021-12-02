@@ -55,8 +55,8 @@ export const Navigation = (props) => {
               Registrate
             </Link>
           </li>
-            </div>
-          </li>
+            {/* </div> */}
+          {/* </li> */}
         </ul>
       </div>
     </nav>
