@@ -1,9 +1,9 @@
 import React from 'react';
-import MenuProfesion from './MenuProfesion';
-import ListProfesion from './ListProfesion';
+import MenuProfesion from '../components/MenuProfesion';
+import ListProfesion from '../components/ListProfesion';
 
 
-class BuscadorProfesionCopy extends React.Component {
+class BuscadorIngenieros extends React.Component {
 
     /* Se determina componente como clase para poder modificar el estado
         de la aplicacón y así modificar la información grafica de esta por medio 
@@ -186,4 +186,4 @@ class BuscadorProfesionCopy extends React.Component {
     }
 	}
 
-export default BuscadorProfesionCopy;
+export default BuscadorIngenieros;

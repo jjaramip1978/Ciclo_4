@@ -43,8 +43,8 @@ export const Navigation = (props) => {
               Buscador
             </Link>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link class="dropdown-item" to="/Buscador">Buscador de Servicios</Link>
-              <Link class="dropdown-item" to="/BuscadorProfesionCopy">Buscador de Ingenieros</Link>
+              <Link class="dropdown-item" to="/buscadorIngenieros">Buscador Ingenieros</Link>
+              <Link class="dropdown-item" to="/buscadorServicios">Buscador Servicios</Link>
             </div>
           </li>
           <li class="nav-item">
@@ -54,10 +54,7 @@ export const Navigation = (props) => {
             <Link class="nav-link dropdown-toggle" to="/registro" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Registrate
             </Link>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link class="dropdown-item" to="/ingeniero">Ingenieros</Link>
-              <Link class="dropdown-item" to="/empleador">Empresa</Link>
-            </div>
+            
           </li>
           <li class="nav-item dropdown">
             <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

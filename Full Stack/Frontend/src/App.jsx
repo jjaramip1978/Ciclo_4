@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/Home";
 import Registro from "./pages/Registro";
-import Buscador from "./pages/Buscador";
-import BuscadorProfesionCopy from "./components/buscadorProfesionCopy";
+import BuscadorServicios from "./pages/BuscadorServicios";
+import BuscadorIngenieros from "./pages/BuscadorIngenieros";
 import { Footer } from "./components/footer";
 import { Navigation } from "./components/navigation";
 import { Ingeniero } from "./components/ingeniero";
@@ -36,11 +36,11 @@ function App() {
           <Route path="/inicio-sesion">
             <InicioSesion />
           </Route>
-          <Route path="/buscador">
-            <Buscador />
+          <Route path="/buscadorServicios">
+            <BuscadorServicios />
           </Route>
-          <Route path="/buscadorprofesioncopy">
-            <BuscadorProfesionCopy />
+          <Route path="/buscadorIngenieros">
+            <BuscadorIngenieros />
           </Route>
         </Switch>
         <Footer />
