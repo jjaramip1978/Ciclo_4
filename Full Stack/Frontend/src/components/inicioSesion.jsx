@@ -16,8 +16,9 @@ export const InicioSesion = () => {
     axios.post("http://localhost:5000/auth/login", { email, password })
       .then(res => {
         console.log(res);
-        axios.get(`http://localhost:5000/api/buscarProfesionalEmail/${email}`).then(res => {
-          localStorage.setItem('id', res.data._id);
+        axios.get(`http://localhost:5000/api/buscarProfesionalEmail/${email}`).then(res2 => {
+          console.log(res2);
+          localStorage.setItem('id', res2.data._id);
           localStorage.setItem('email', email);
           console.log(localStorage.getItem('id'));
           window.location.replace('');
