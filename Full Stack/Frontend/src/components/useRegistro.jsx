@@ -75,6 +75,7 @@ const useForm = (validate) => {
             [name]: "" //name es la etiqueta que se le da al input como name="email"
         })
         // setErrors(validate(values));
+        // window.location.replace('');
     }
 
     const handleSubmit2 = e => {
@@ -99,6 +100,7 @@ const useForm = (validate) => {
             ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
             [name]: "" //name es la etiqueta que se le da al input como name="email"
         })
+        // window.location.replace('');
         // setErrors(validate(values));
     }
 

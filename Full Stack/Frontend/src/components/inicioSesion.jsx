@@ -26,6 +26,13 @@ export const InicioSesion = () => {
     axios.post("http://localhost:5000/auth/login", { email, password })
       .then(res => {
         console.log(res);
+        axios.get(`http://localhost:5000/api/buscarProfesionalEmail/${email}`).then(res2 => {
+          console.log(res2);
+          localStorage.setItem('id', res2.data._id);
+          localStorage.setItem('email', email);
+          console.log(localStorage.getItem('id'));
+          window.location.replace('');
+        })
       })
       .catch(err => {
         //console.log(err.res.data);
@@ -43,7 +50,7 @@ export const InicioSesion = () => {
         <div className='contenedor2'>
           <div className="form-inputs2">
               <p className="text-uppercase"><strong>Iniciar Sesión</strong></p>
-            </div>
+            {/* </div> */}
             <label className="form-labelFirst">Email</label>
             <p className="text-danger">
               <small>{errorEmail}</small>
@@ -79,7 +86,7 @@ export const InicioSesion = () => {
             />
             {/* {errors.password && <p>{errors.password}</p>} */}
           </div>
-          { errorPassword || errorEmail ? (
+          {/* { errorPassword || errorEmail ? (
             <div className="checkbox mb-3 text-danger fw-bold">
               <small>Error al registrar</small>
             </div>
@@ -89,7 +96,7 @@ export const InicioSesion = () => {
             <div className="checkbox mb-3 text-success fw-bold">
               <small>Sesion iniciada Id Usuario: {successful}</small>
             </div>
-          ): null}
+          ): null} */}
           
         {/* </div> */}
 
