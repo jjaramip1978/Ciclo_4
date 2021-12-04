@@ -32,7 +32,7 @@ class SearchProfesion extends React.Component { //Componente declarado como una 
 				</label>
 				<textarea 
 				type="text"
-				class="form-control" 
+				className="form-control" 
 				placeholder="Buscar" 
 				rows="1"  
 				onChange={this.onChangeEvent}></textarea>
