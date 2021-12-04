@@ -98,7 +98,7 @@ export const InicioSesion = () => {
             </div>
           ): null} */}
           
-        {/* </div> */}
+        </div>
 
         <button className='form-input-btn2' type='submit'>
           Iniciar Sesión

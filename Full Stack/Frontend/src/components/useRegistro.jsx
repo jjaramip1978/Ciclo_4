@@ -53,13 +53,14 @@ const useForm = (validate) => {
                 localStorage.setItem('userId', res.data.id);
                 const idUser = localStorage.getItem('userId');
                 console.log(idUser);
-                axios.post("http://localhost:5000/api/nuevoProfesional", 
-                { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
+                axios.post("http://localhost:5000/api/nuevoProfesional",
+                    { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
                     .then(res2 => {
                         console.log(res2);
                         localStorage.setItem('id', res2.data._id);
                         localStorage.setItem('email', email);
                         console.log(localStorage.getItem('email'));
+                        window.location.replace('');
                     })
                     .catch(err2 => {
                         console.log(err2);
@@ -75,7 +76,6 @@ const useForm = (validate) => {
             [name]: "" //name es la etiqueta que se le da al input como name="email"
         })
         // setErrors(validate(values));
-        // window.location.replace('');
     }
 
     const handleSubmit2 = e => {
