@@ -12,9 +12,9 @@ class Search extends React.Component {
 
 		return (
 
-			<div class="form-group">
+			<div className="form-group">
 				<label for="exampleInputEmail1">Buscar Servicio</label>
-				<textarea class="form-control" placeholder="Buscar" rows="1"  onChange={this.onChangeEvent}></textarea>
+				<textarea className="form-control" placeholder="Buscar" rows="1"  onChange={this.onChangeEvent}></textarea>
 			</div>
 		);
 

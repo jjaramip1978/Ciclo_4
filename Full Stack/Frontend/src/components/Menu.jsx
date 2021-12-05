@@ -7,8 +7,8 @@ import './styles/Menu.css';
 function Menu(props) {
 	return (
 
-		<reactFragment>
-			<div ClassName="container-fluid">
+		<>
+			<div className="container-fluid">
 				<div className="subcontainer">
 					<div className="d-flex justify-content-center my-3">
 						{props.title}
@@ -19,14 +19,14 @@ function Menu(props) {
 			<div className="container-lg">
 				<div className="subcontainer">
 
-					<div ClassName="search">
+					<div className="search">
 						<Search onsearch={props.onsearch} /> 
 						<i className="bi bi-search center #adb5bd"></i>
 					</div>
 				</div>
 			</div>
 
-		</reactFragment>
+		</>
 	);
 }
 

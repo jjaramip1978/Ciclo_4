@@ -11,19 +11,19 @@ function Item(props) {
 					</div>
 
 					<div className="card-body">
-						<h7 className="card.title pricing-card-title">
+						<h1 className="card.title pricing-card-title">
 							<small className="h6 text-muted fw-light d-block">{props.Email}</small>
-						</h7>
+						</h1>
 
-						<h7 className="card-title pricing-card-title">
+						<h1 className="card-title pricing-card-title">
 							{props.Habilidad}
 							<small className="h6 text-muted fw-light d-block"></small>
-						</h7>
+						</h1>
 
-						<h7 className="card-title pricing-card-title">
+						<h1 className="card-title pricing-card-title">
 							{props.Descripcion}
 							<small className="h6 text-muted fw-light d-block"></small>
-						</h7>
+						</h1>
 
 						<ul className="list-unstyled mt-3 mb-4">
 							<li>Valor:${props.Valor}</li>

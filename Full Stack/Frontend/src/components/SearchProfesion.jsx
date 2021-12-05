@@ -25,7 +25,7 @@ class SearchProfesion extends React.Component { //Componente declarado como una 
 			/*Se añade al input onChange y se manda a llamar una funcion 
 			onChangeEvent*/
 
-			<div class="form-group flex-nowrap">
+			<div className="form-group flex-nowrap">
 				{/* <input type="text" onChange={this.onChangeEvent} /> */}
 				<label 
 				for="exampleInputEmail1">Buscar Ingeniero

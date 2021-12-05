@@ -3,6 +3,7 @@ import Menu from '../components/Menu';
 import List from '../components/List';
 import axios from 'axios';
 
+
 axios.defaults.withCredentials = true;
 
 class BuscadorServicios extends React.Component {
@@ -30,9 +31,11 @@ class BuscadorServicios extends React.Component {
     }
 
     initserviciosRegistrados = () => {
+        const copyserviciosRegistrados=localStorage.getItem('copyserviciosRegistrados')
         this.setState((state, props) => ({
             serviciosRegistrados: JSON.parse(localStorage.getItem('serviciosRegistrados')),
-            copyserviciosRegistrados: [...JSON.parse(localStorage.getItem('copyserviciosRegistrados'))]
+            copyserviciosRegistrados: copyserviciosRegistrados ? [...JSON.parse(localStorage.getItem('copyserviciosRegistrados'))] :[]
+
         }));
     }
 
