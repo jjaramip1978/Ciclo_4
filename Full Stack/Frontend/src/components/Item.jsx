@@ -7,28 +7,28 @@ function Item(props) {
 			<div className="col">
 				<div className="card mb-4 rounded-3 shadow-sm">
 					<div className="card-header py-3">
-						<h5 className="my-0 fw-normal">{props.Habilidad}</h5>
+						<h2 className="my-0 fw-normal">{props.Habilidad}</h2>
 					</div>
 
 					<div className="card-body">
-						<h1 className="card.title pricing-card-title">
+						<h5 className="card.title pricing-card-title">
 							<small className="h6 text-muted fw-light d-block">{props.Email}</small>
-						</h1>
+						</h5>
 
-						<h1 className="card-title pricing-card-title">
+						<h5 className="card-title pricing-card-title">
 							{props.Habilidad}
 							<small className="h6 text-muted fw-light d-block"></small>
-						</h1>
+						</h5>
 
-						<h1 className="card-title pricing-card-title">
+						<h5 className="card-title pricing-card-title">
 							{props.Descripcion}
 							<small className="h6 text-muted fw-light d-block"></small>
-						</h1>
+						</h5>
 
 						<ul className="list-unstyled mt-3 mb-4">
 							<li>Valor:${props.Valor}</li>
 						</ul>
-
+							
 					</div>
 				</div>
 			</div>
