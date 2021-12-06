@@ -53,13 +53,14 @@ const useForm = (validate) => {
                 localStorage.setItem('userId', res.data.id);
                 const idUser = localStorage.getItem('userId');
                 console.log(idUser);
-                axios.post("http://localhost:5000/api/nuevoProfesional", 
-                { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
+                axios.post("http://localhost:5000/api/nuevoProfesional",
+                    { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
                     .then(res2 => {
                         console.log(res2);
                         localStorage.setItem('id', res2.data._id);
                         localStorage.setItem('email', email);
                         console.log(localStorage.getItem('email'));
+                        window.location.replace('');
                     })
                     .catch(err2 => {
                         console.log(err2);
@@ -99,6 +100,7 @@ const useForm = (validate) => {
             ...values, //spreading props, con ... trae todos los valores contenidos en setValues; setNombre, setEmail etc
             [name]: "" //name es la etiqueta que se le da al input como name="email"
         })
+        // window.location.replace('');
         // setErrors(validate(values));
     }
 

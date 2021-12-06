@@ -34,7 +34,7 @@ module.exports.signUp = async (req, res, next) => {
                 }]
             });
         }
-        user = await User.create({ email, password });
+        user = await User.create({ email: email, password: password });
         token = createToken(user);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
         res.json({id: user.id, email: user.email});
