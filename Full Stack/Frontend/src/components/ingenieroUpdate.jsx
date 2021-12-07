@@ -40,11 +40,11 @@ export const IngenieroUpdate = () => {
     const email = localStorage.getItem('email');
     console.log("Email: ", email);
     const id = localStorage.getItem('id');
-    axios.delete(`http://localhost:5000/api/eliminarProfesional/${id}`)
+    axios.delete(`https://app-backend-2-ingenio.herokuapp.com/api/eliminarProfesional/${id}`)
       .then(res => {
         console.log(res);
         console.log(email);
-        axios.delete(`http://localhost:5000/auth/deleteUser/${email}`).then(res => {
+        axios.delete(`https://app-backend-2-ingenio.herokuapp.com/auth/deleteUser/${email}`).then(res => {
           console.log(res);
         })
           .catch(err => {
@@ -68,7 +68,7 @@ export const IngenieroUpdate = () => {
     const valor = values.valor;
 
     // console.log(values.id);
-    axios.put(`http://localhost:5000/api/actualizarProfesional/${id}`,
+    axios.put(`https://app-backend-2-ingenio.herokuapp.com/api/actualizarProfesional/${id}`,
       { nombre, ciudad, celular, profesion, habilidad, descripcion, valor })
       .then(res => {
         console.log(res);
@@ -93,7 +93,7 @@ export const IngenieroUpdate = () => {
     // setValues({ id: localStorage.getItem('id') });
     // console.log("Valor id: ", values.id);
 
-    axios.get(`http://localhost:5000/api/buscarProfesional/${id}`).then(res => {
+    axios.get(`https://app-backend-2-ingenio.herokuapp.com/api/buscarProfesional/${id}`).then(res => {
       console.log(res);
       setValues({
         id: res.data.id,

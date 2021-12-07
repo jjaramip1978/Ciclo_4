@@ -46,14 +46,14 @@ const useForm = (validate) => {
         const valor = values.valor;
 
         console.log(email, password, nombre, ciudad, celular, profesion, habilidad, descripcion, valor);
-        axios.post("http://localhost:5000/auth/signUp", { email, password })
+        axios.post("https://app-backend-2-ingenio.herokuapp.com/auth/signUp", { email, password })
             .then(res => {
                 console.log(res);
                 console.log("Usuario registrado");
                 localStorage.setItem('userId', res.data.id);
                 const idUser = localStorage.getItem('userId');
                 console.log(idUser);
-                axios.post("http://localhost:5000/api/nuevoProfesional",
+                axios.post("https://app-backend-2-ingenio.herokuapp.com/api/nuevoProfesional",
                     { idUser, nombre, email, ciudad, celular, profesion, habilidad, descripcion, valor })
                     .then(res2 => {
                         console.log(res2);
@@ -88,7 +88,7 @@ const useForm = (validate) => {
         const empresa = values.empresa;
 
         console.log(email, password, nombre, ciudad, celular, empresa);
-        axios.post("http://localhost:5000/api/nuevoCliente", { nombre, email, ciudad, celular, empresa })
+        axios.post("https://app-backend-2-ingenio.herokuapp.com/api/nuevoCliente", { nombre, email, ciudad, celular, empresa })
             .then(res => {
                 console.log(res);
             })

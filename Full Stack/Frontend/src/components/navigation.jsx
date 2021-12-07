@@ -21,7 +21,7 @@ export const Navigation = (props) => {
 
 
   const handleLogout = () => {
-    axios.post('http://localhost:5000/auth/logout')
+    axios.post('https://app-backend-2-ingenio.herokuapp.com/auth/logout')
     localStorage.removeItem('id');
     localStorage.removeItem('userId');
     localStorage.removeItem('email');
