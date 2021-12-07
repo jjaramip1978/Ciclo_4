@@ -23,10 +23,10 @@ export const InicioSesion = () => {
         setErrorPassword("");
 
     //para borrar el contenido del formulario automaticamente y dejar los campos en blanco
-    axios.post("http://localhost:5000/auth/login", { email, password })
+    axios.post("https://app-backend-2-ingenio.herokuapp.com/auth/login", { email, password })
       .then(res => {
         console.log(res);
-        axios.get(`http://localhost:5000/api/buscarProfesionalEmail/${email}`).then(res2 => {
+        axios.get(`https://app-backend-2-ingenio.herokuapp.com/api/buscarProfesionalEmail/${email}`).then(res2 => {
           console.log(res2);
           localStorage.setItem('id', res2.data._id);
           localStorage.setItem('email', email);
