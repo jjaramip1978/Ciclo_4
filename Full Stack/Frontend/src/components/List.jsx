@@ -9,9 +9,9 @@ function List(props) {
 	return (
 		<div className="List">
 			{
-				props.items.map(item => 
+				props.items.map((item, id) => 
 					<Item
-						// key={item.habilidad}
+						key={id}
 						Titulo={item.titulo}
 						Email={item.correo}
 						Habilidad={item.habilidad}

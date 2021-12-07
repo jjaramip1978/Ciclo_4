@@ -136,7 +136,7 @@ export const Ingeniero = () => {
           <div className="form-inputs2">
             <label className="form-label">Descripción</label>
             <textarea
-              class="form-inputD"
+              className="form-inputD"
               id="exampleFormControlTextarea1"
               rows="3"
               name="descripcion"
@@ -149,7 +149,7 @@ export const Ingeniero = () => {
 
           <div className="form-inputs2">
             <label className="form-label">Rango de valor por tus servicios</label>
-            <select class="form-input" aria-label="Default select example" name="valor"
+            <select className="form-input" aria-label="Default select example" name="valor"
               value={values.valor} onChange={handleChange}
             >
               <option selected >Elige un rango</option>

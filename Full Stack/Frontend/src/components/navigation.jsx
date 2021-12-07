@@ -42,9 +42,9 @@ export const Navigation = (props) => {
             <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Buscador
             </Link>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link class="dropdown-item" to="/Buscador">Buscador de Servicios</Link>
-              <Link class="dropdown-item" to="/BuscadorProfesionCopy">Buscador de Ingenieros</Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link className="dropdown-item" to="/buscadorIngenieros">Buscador Ingenieros</Link>
+              <Link className="dropdown-item" to="/buscadorServicios">Buscador Servicios</Link>
             </div>
           </li>
           <li class="nav-item">
@@ -59,14 +59,14 @@ export const Navigation = (props) => {
               <Link class="dropdown-item" to="/empleador">Empresa</Link>
             </div> */}
           </li>
-          <li class="nav-item dropdown">
-            <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {email.email}
+          <li className="nav-item dropdown">
+            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Usuario
             </Link>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link class="dropdown-item" to="/ingenieroUpdate">Editar Perfil</Link>
-              <div class="dropdown-divider"></div>
-              <Link class="dropdown-item" to="#" onClick={handleLogout}>Cerrar Sesion</Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link className="dropdown-item" to="#">Editar Perfil</Link>
+              <div className="dropdown-divider"></div>
+              <Link className="dropdown-item" to="#">Cerrar Sesion</Link>
             </div>
           </li>
         </ul>

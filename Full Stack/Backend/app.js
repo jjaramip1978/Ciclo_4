@@ -20,6 +20,7 @@ const app = express();
 
 const authRoutes = require('./routes/authRoutes');
 
+//const uri = 'mongodb://localhost/myFirstDatabase';
 const uri = 'mongodb+srv://ciclo3_Team5:ciclo3_Team5@cluster0.hh4iw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
